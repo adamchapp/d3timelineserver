@@ -54,7 +54,7 @@
       <file leaf-file-name="Readme.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Readme.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="21" selection-start="236" selection-end="236" vertical-scroll-proportion="0.21634616">
+            <state line="5" column="108" selection-start="158" selection-end="158" vertical-scroll-proportion="0.09014423">
               <folding />
             </state>
           </provider>
@@ -83,6 +83,7 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/js/timeline/core.js" />
         <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/Readme.md" />
       </list>
     </option>
   </component>
@@ -318,7 +319,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Readme.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="21" selection-start="236" selection-end="236" vertical-scroll-proportion="0.21634616">
+        <state line="5" column="108" selection-start="158" selection-end="158" vertical-scroll-proportion="0.09014423">
           <folding />
         </state>
       </provider>
