@@ -7,6 +7,8 @@ The app is a node.js server running Express. There are various endpoints, but go
 
 # Goals #
 
-Set up default route and timeline json route
+-Set up default route to server index.html and d3 plugins
+-Add timeline json route
+-Look into password project for the JSON endpoints
 
 
