@@ -45,9 +45,9 @@
 
 <script>
 
-    d3.select('#graph').append('p').text("loading");
+    console.log('starting timeline...')
 
-    d3.json('http://localhost:3000', callback_function);
+    d3.json('http://localhost:3000/timeline/1234', callback_function);
 
     function callback_function(data) {
 

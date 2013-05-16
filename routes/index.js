@@ -1,14 +1,18 @@
-/**
- * Created with JetBrains WebStorm.
- * User: adamchapp
- * Date: 16/05/2013
- * Time: 19:55
- * To change this template use File | Settings | File Templates.
- */
-
+var fs = require('fs');
 var static = require('node-static');
-var fileServer = new static.Server('./public');
+var fileServer = new static.Server('./public')
 
 exports.index = function(req, res) {
-    var html =
+    console.log('serving index.html');
+
+    fileServer.serveFile('/index.html', 200, {}, req, res);
+}
+
+//TODO
+exports.timeline = function(req, res) {
+
+    fs.readFile( 'public/data/timeline.json', function (err, data) {
+        if (err) { throw err; }
+        res.json(JSON.parse(data));
+    });
 }
