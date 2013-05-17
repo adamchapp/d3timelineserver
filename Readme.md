@@ -10,6 +10,6 @@ is a timeline component based on the D3 library (http://d3js.org)
 
 - Set up default route to server index.html and d3 plugins
 - Add timeline json route
-- Look into password project for the JSON endpoints
+- Look into password protection for the JSON endpoints
 
 

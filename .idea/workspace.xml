@@ -4,12 +4,12 @@
     <list default="true" id="f0148603-d189-4d42-9cd1-a886f10459c4" name="Default" comment="" />
     <ignored path="d3timelineserver.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/user.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368732239087" ignored="false" />
-    <file path="/Dummy.txt" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368731636608" ignored="false" />
-    <file path="/app.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368734115402" ignored="false" />
-    <file path="/package.json" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368730787128" ignored="false" />
-    <file path="/index.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368734314454" ignored="false" />
     <file path="/index.html" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368733695851" ignored="false" />
+    <file path="/index.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368734314454" ignored="false" />
+    <file path="/package.json" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368730787128" ignored="false" />
+    <file path="/app.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368734115402" ignored="false" />
+    <file path="/Dummy.txt" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368731636608" ignored="false" />
+    <file path="/user.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368732239087" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,10 +38,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="55" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.39714867">
+            <state line="62" column="55" selection-start="1422" selection-end="1422" vertical-scroll-proportion="-17.791666">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Readme.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Readme.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="31" selection-start="420" selection-end="420" vertical-scroll-proportion="0.23972602">
               <folding />
             </state>
           </provider>
@@ -122,7 +131,6 @@
       <list>
         <option value="$PROJECT_DIR$/public/js/timeline/core.js" />
         <option value="$PROJECT_DIR$/readme.md" />
-        <option value="$PROJECT_DIR$/Readme.md" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/routes/endpoints.js" />
         <option value="$PROJECT_DIR$/routes/user.js" />
@@ -130,6 +138,7 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/timeline.js" />
+        <option value="$PROJECT_DIR$/Readme.md" />
       </list>
     </option>
   </component>
@@ -164,6 +173,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,18 +262,17 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="web.server" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/index.html" />
+    <property name="options.lastSelected" value="web.server" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="options.searchVisible" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/index.html" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -318,13 +327,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1967" height="1024" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18672839" sideWeight="0.60022146" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39977852" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18672839" sideWeight="0.60022146" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39870688" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -435,11 +444,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="65" selection-start="266" selection-end="266" vertical-scroll-proportion="0.10989011" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="29" selection-start="271" selection-end="271" vertical-scroll-proportion="0.0">
@@ -498,7 +502,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="55" selection-start="1422" selection-end="1422" vertical-scroll-proportion="0.39714867">
+        <state line="62" column="55" selection-start="1422" selection-end="1422" vertical-scroll-proportion="-17.791666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="31" selection-start="420" selection-end="420" vertical-scroll-proportion="0.23972602">
           <folding />
         </state>
       </provider>
