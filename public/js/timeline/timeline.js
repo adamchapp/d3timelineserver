@@ -17,6 +17,10 @@ st.timeline = function() {
         , h_buffer = 5
         , row_padding = 10
 
+    var availableWidth = width - margin.left - margin.right;
+    var availableHeight = height - margin.top - margin.bottom;
+    var paddedRowHeight = row_height + row_padding;
+
     function chart(selection) {
 
         selection.each(function(data) {
@@ -24,19 +28,24 @@ st.timeline = function() {
             //sort data
             data = data.sort(function(a, b){ return d3.ascending(a.startdate, b.startdate); })
 
-            var minDate = date_format.parse(data[0].startdate);
-            var maxDate = date_format.parse(data[data.length-1].startdate);
+            var ext = d3.extent(data, function(d) { return date_format.parse(d.startdate)});
 
             //set up scale
             var x_scale = d3.time.scale()
-                                 .domain([minDate,maxDate])
-                                 .range([0, width-margin.left-margin.right]);
+                .domain(ext)
+                .range([0, availableWidth]);
+
+            var zoom = d3.behavior.zoom()
+                .x(x_scale)
+                .scale(3)
+                .scaleExtent([1, 1000])
+                .on("zoom", zoom)
 
             var lanes = []
-            ,   x_pos = function(date) { return x_scale(date_format.parse(date))}
-            ,   x_width = function(d) { return x_pos(d.enddate) - x_pos(d.startdate)}
-            ,   y_pos = function(d) { return height - margin.top - margin.bottom - axis_buffer - (( row_height + row_padding ) * getLane(0, d)) }
-            ,   xAxis = d3.svg.axis().scale(x_scale).orient("bottom");//.tickSize(6, 0);
+                ,   x_pos = function(date) { return x_scale(date_format.parse(date))}
+                ,   x_width = function(d) { return x_pos(d.enddate) - x_pos(d.startdate)}
+                ,   y_pos = function(d) { return availableHeight - axis_buffer - (paddedRowHeight * getLane(0, d)) }
+                ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom");//.tickSize(6, 0);
 
 
             //create dataprovider containing item positions
@@ -59,7 +68,8 @@ st.timeline = function() {
 
             // Update the outer dimensions.
             svg.attr("width", width)
-               .attr("height", height);
+                .attr("height", height)
+                .call(zoom);
 
             // Update the inner dimensions.
             var g = svg.select("g")
@@ -67,37 +77,69 @@ st.timeline = function() {
 
             // Update the x-axis.
             var axis = g.select(".x.axis")
-                        .attr("transform", "translate(0," + (height-margin.bottom-margin.top) + ")")
+                .attr("transform", "translate(0," + availableHeight + ")")
 
-            axis.call(xAxis);
+            axis.call(x_axis);
 
             var nodes = g.selectAll(".node").data(data);
 
+            var rect = nodes.select(".rect");
+            var text = nodes.select(".text");
+
             //update selection
-            nodes.transition()
-                .duration(1400)
+            rect
                 .attr("x", function(d) { return x_pos(d.startdate) })
                 .attr("y", function(d, i) { return d.y_pos })
+                .attr("width", function(d) { return x_width(d) })
+
+            text
+                .attr("x", function(d) { return x_pos(d.startdate) + h_buffer })
+                .attr("y", function(d, i) { return d.y_pos + (row_height/2) - row_padding })
                 .attr("width", function(d) { return x_width(d) })
 
             //enter selection
             var nodeEnter = nodes.enter().append("g").attr("class", "node");
 
+            //new rects
             nodeEnter.append("rect")
-                     .attr("x", function(d) { return x_pos(d.startdate) })
-                     .attr("y", function(d, i) { return d.y_pos })
-                     .attr("width", function(d) { return x_width(d) })
-                     .attr("height", 10);
+                .attr("class", "rect")
+                .attr("x", function(d) { return x_pos(d.startdate) })
+                .attr("y", function(d, i) { return d.y_pos })
+                .attr("width", function(d) { return x_width(d) })
+                .attr("height", row_height);
 
-            nodeEnter.append("text")
-                     .attr("x", function(d) { return x_pos(d.startdate) })
-                     .attr("y", function(d, i) { return d.y_pos })
-                     .text(function(d) { return d.title });
-
-
+            //new labels
+            nodeEnter.append('foreignObject')
+                .attr("class", "text")
+                .attr("x", function(d) { return x_pos(d.startdate) })
+                .attr("y", function(d, i) { return d.y_pos + (row_height/2) })
+                .attr("class", "text")
+                .attr("width", function(d) { return x_width(d) })
+                .attr("height", row_height)
+                .attr("pointer-events", "none")
+                .attr("dx", "1em")
+                .append('xhtml:body')
+                .html(function(d) { return d.title })
 
             //exit selection
             nodes.exit().remove();
+
+            function zoom(e) {
+
+                svg.select(".axis").call(x_axis);
+
+                nodes.select(".rect")
+                    .attr("x", function(d) { return x_pos(d.startdate); })
+                    .attr("width", function(d) { d.width = x_width(d); return d.width; });
+
+                nodes.select(".text")
+                    .attr("x", function(d) {
+                        d.end_pos = x_pos(d.enddate);
+                        d.start_pos = ( x_pos(d.startdate) < 0 && d.end_pos > 0 ) ? "0" : x_pos(d.startdate);
+                        return d.start_pos;
+                    })
+                    .attr("width", function(d) { return d.end_pos - d.start_pos; })
+            }
 
             function getLane(currentLane, event) {
 
