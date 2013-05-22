@@ -130,9 +130,9 @@ st.timeline = function() {
 
                 svg.select(".axis").call(x_axis);
 
-                nodes.select(".rect")
-                    .attr("x", function(d) { return x_pos(d.startdate); })
-                    .attr("width", function(d) { d.width = x_width(d); return d.width; });
+//                nodes.select(".rect")
+//                    .attr("x", function(d) { return x_pos(d.startdate); })
+//                    .attr("width", function(d) { d.width = x_width(d); return d.width; });
 
                 nodes.select(".text")
                     .attr("x", function(d) {
@@ -140,7 +140,9 @@ st.timeline = function() {
                         d.start_pos = ( x_pos(d.startdate) < 0 && d.end_pos > 0 ) ? "0" : x_pos(d.startdate);
                         return d.start_pos;
                     })
-                    .attr("width", function(d) { return d.end_pos - d.start_pos; })
+                    .attr("width", function(d) {
+                        return d.end_pos - d.start_pos;
+                    })
             }
 
             function getLane(currentLane, event) {
