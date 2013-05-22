@@ -6,7 +6,7 @@ var express = require('express')
 var app = express();
 
 app.configure(function(){
-  app.set('port', 3000);
+  app.set('port', 80);
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
