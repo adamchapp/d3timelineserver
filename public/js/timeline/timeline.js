@@ -103,23 +103,23 @@ st.timeline = function() {
             var nodeEnter = nodes.enter().append("g").attr("class", "node");
 
             //new rects
-            nodeEnter.append("rect")
-                .attr("class", "rect")
-                .attr("x", function(d) { return x_pos(d.startdate) })
-                .attr("y", function(d, i) { return d.y_pos })
-                .attr("width", function(d) { return x_width(d) })
-                .attr("height", row_height);
+//            nodeEnter.append("rect")
+//                .attr("class", "rect")
+//                .attr("x", function(d) { return x_pos(d.startdate) })
+//                .attr("y", function(d, i) { return d.y_pos })
+//                .attr("width", function(d) { return x_width(d) })
+//                .attr("height", row_height);
 
             //new labels
             nodeEnter.append('foreignObject')
                 .attr("x", function(d) { return x_pos(d.startdate) })
-                .attr("y", function(d, i) { return d.y_pos + (row_height/2) })
+                .attr("y", function(d, i) { return d.y_pos })
                 .attr("class", "text")
                 .attr("width", function(d) { return x_width(d) })
                 .attr("height", row_height)
                 .attr("pointer-events", "none")
                 .attr("dx", "1em")
-                .append('xhtml:body')
+                .append('xhtml:div')
                 .attr('class', 'foreign')
                 .html(function(d) { return d.title })
 
