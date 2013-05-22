@@ -3,8 +3,6 @@ var static = require('node-static');
 var fileServer = new static.Server('./public')
 
 exports.index = function(req, res) {
-    console.log('serving index.html');
-
     fileServer.serveFile('/index.html', 200, {}, req, res);
 }
 

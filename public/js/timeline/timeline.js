@@ -37,27 +37,15 @@ st.timeline = function() {
                 .domain(ext)
                 .range([0, availableWidth]);
 
-            var zoom = d3.behavior.zoom()
-                .x(x_scale)
-                .scale(3)
-                .scaleExtent([1, 1000])
-                .on("zoom", zoom)
+            var zoom = d3.behavior.zoom().x(x_scale).scale(3).scaleExtent([1, 1000]).on("zoom", zoom)
 
             var lanes = []
                 ,   x_pos = function(date) { return x_scale(date_format.parse(date))}
                 ,   x_width = function(d) { return x_pos(d.enddate) - x_pos(d.startdate)}
                 ,   y_pos = function(d) { return availableHeight - axis_buffer - (paddedRowHeight * getLane(0, d)) }
 
-            var x_axis = d3.svg.axis()
-                               .scale(x_scale)
-                               .orient("bottom")
-                               .ticks(5)
-                               .tickFormat(d3.time.format('%B'))//.tickSize(6, 0);
-                ,   sub_axis = d3.svg.axis()
-                                     .scale(x_scale)
-                                     .orient("bottom")
-                                     .ticks(2);
-
+            var x_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(5).tickFormat(d3.time.format('%B'))//.tickSize(6, 0);
+            ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2);
 
             //create dataprovider containing item positions
             //the lane property is used to get the y position
@@ -99,14 +87,7 @@ st.timeline = function() {
 
             var nodes = g.selectAll(".node").data(data);
 
-//            var rect = nodes.select(".rect");
             var text = nodes.select(".text");
-
-            //update selection
-//            rect
-//                .attr("x", function(d) { return x_pos(d.startdate) })
-//                .attr("y", function(d, i) { return d.y_pos })
-//                .attr("width", function(d) { return x_width(d) })
 
             text
                 .attr("x", function(d) { return x_pos(d.startdate) + h_buffer })
@@ -115,14 +96,6 @@ st.timeline = function() {
 
             //enter selection
             var nodeEnter = nodes.enter().append("g").attr("class", "node");
-
-            //new rects
-//            nodeEnter.append("rect")
-//                .attr("class", "rect")
-//                .attr("x", function(d) { return x_pos(d.startdate) })
-//                .attr("y", function(d, i) { return d.y_pos })
-//                .attr("width", function(d) { return x_width(d) })
-//                .attr("height", row_height);
 
             //new labels
             nodeEnter.append('foreignObject')
@@ -143,10 +116,6 @@ st.timeline = function() {
 
                 svg.select(".x").call(x_axis);
                 svg.select(".sub").call(sub_axis);
-
-//                nodes.select(".rect")
-//                    .attr("x", function(d) { return x_pos(d.startdate); })
-//                    .attr("width", function(d) { d.width = x_width(d); return d.width; });
 
                 nodes.select(".text")
                     .attr("x", function(d) {
