@@ -19,12 +19,16 @@
             shape-rendering: crispEdges;
         }
 
+        .foreign {
+            background-color: black;
+        }
+
         rect {
-            stroke-width: .1;
             fill: #4eafd7;
         }
 
         .text {
+            font-family: "Helvetica Neue", Helvetica, Arial;
             color: #ffffff;
         }
 
@@ -34,6 +38,8 @@
 <body>
 
 <div id="graph"></div>
+
+<input type="range" id="slider" />
 
 <button id="button">click me</button>
 
@@ -47,7 +53,9 @@
 
     console.log('starting timeline...')
 
-    d3.json('http://localhost:3000/timeline/1234', callback_function);
+    var root_url = 'http://localhost:3000/'; //http://sparrowman-d3timelineserver.jit.su/
+
+    d3.json(root_url + 'timeline/1234', callback_function);
 
     function callback_function(data) {
 
@@ -76,6 +84,11 @@
             d3.select("#graph")
               .datum(eventSelection)
               .call(timeline);
+        })
+
+        d3.select('#slider').on("click", function(e) {
+            console.log('hidey hi');
+            console.log(this.value);
         })
     }
 

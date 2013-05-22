@@ -17,11 +17,13 @@ st.timeline = function() {
         , h_buffer = 5
         , row_padding = 10
 
-    var availableWidth = width - margin.left - margin.right;
-    var availableHeight = height - margin.top - margin.bottom;
-    var paddedRowHeight = row_height + row_padding;
+    var dispatch = d3.dispatch('customHover');
 
     function chart(selection) {
+
+        var availableWidth = width - margin.left - margin.right;
+        var availableHeight = height - margin.top - margin.bottom;
+        var paddedRowHeight = row_height + row_padding;
 
         selection.each(function(data) {
 
@@ -110,7 +112,6 @@ st.timeline = function() {
 
             //new labels
             nodeEnter.append('foreignObject')
-                .attr("class", "text")
                 .attr("x", function(d) { return x_pos(d.startdate) })
                 .attr("y", function(d, i) { return d.y_pos + (row_height/2) })
                 .attr("class", "text")
@@ -119,6 +120,7 @@ st.timeline = function() {
                 .attr("pointer-events", "none")
                 .attr("dx", "1em")
                 .append('xhtml:body')
+                .attr('class', 'foreign')
                 .html(function(d) { return d.title })
 
             //exit selection
@@ -160,6 +162,24 @@ st.timeline = function() {
             };
         })
     }
+
+    chart.width = function(_x) {
+        if (!arguments.length) return width;
+        width = parseInt(_x);
+        return this;
+    };
+    chart.height = function(_x) {
+        if (!arguments.length) return height;
+        height = parseInt(_x);
+        return this;
+    };
+    chart.gap = function(_x) {
+        if (!arguments.length) return row_padding;
+        row_padding = _x;
+        return this;
+    };
+
+    d3.rebind(chart, dispatch, 'on');
 
     return chart;
 }

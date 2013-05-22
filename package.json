@@ -1,14 +1,18 @@
 {
     "name": "timeline",
     "description": "Timeline component",
-    "version": "0.0.1",
+    "version": "0.0.1-5",
     "private": true,
     "dependencies": {
         "express": "3.x",
         "node-static": "0.6.x"
     },
     "engines": {
-        "node": "0.8.4",
+        "node": "0.8.x",
         "npm": "1.1.49"
+    },
+    "subdomain": "sparrowman-d3timelineserver",
+    "scripts": {
+        "start": "node app.js"
     }
 }
