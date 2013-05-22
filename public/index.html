@@ -5,18 +5,22 @@
 
     <style>
 
-        .axis {
-            border-style: solid;
-            border-color: lightgrey;
-            border-width: 1px;
-            shape-rendering: crispEdges;
-        }
-
-        .axis path,
-        .axis line {
+        .x path,
+        .x line {
             fill: none;
             stroke: black;
             shape-rendering: crispEdges;
+        }
+
+        .sub path,
+        .sub line {
+            fill: none;
+            stroke: none;
+            shape-rendering: crispEdges;
+        }
+
+        .sub {
+            font-weight: bold;
         }
 
         .foreign {
@@ -39,6 +43,11 @@
 
         rect {
             fill: #4eafd7;
+        }
+
+        text {
+            font-family: "Helvetica Neue", Helvetica, Arial;
+            font-size: 12px;
         }
 
         .text {

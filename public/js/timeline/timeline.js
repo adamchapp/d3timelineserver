@@ -12,7 +12,7 @@ st.timeline = function() {
         , width = 1800
         , height = 600
         , date_format = d3.time.format("%Y-%m-%d %X")
-        , axis_buffer = 30
+        , axis_buffer = 60
         , row_height = 25
         , h_buffer = 5
         , row_padding = 10
@@ -47,7 +47,16 @@ st.timeline = function() {
                 ,   x_pos = function(date) { return x_scale(date_format.parse(date))}
                 ,   x_width = function(d) { return x_pos(d.enddate) - x_pos(d.startdate)}
                 ,   y_pos = function(d) { return availableHeight - axis_buffer - (paddedRowHeight * getLane(0, d)) }
-                ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom");//.tickSize(6, 0);
+
+            var x_axis = d3.svg.axis()
+                               .scale(x_scale)
+                               .orient("bottom")
+                               .ticks(5)
+                               .tickFormat(d3.time.format('%B'))//.tickSize(6, 0);
+                ,   sub_axis = d3.svg.axis()
+                                     .scale(x_scale)
+                                     .orient("bottom")
+                                     .ticks(2);
 
 
             //create dataprovider containing item positions
@@ -67,6 +76,7 @@ st.timeline = function() {
             // Otherwise, create the skeletal chart.
             var gEnter = svg.enter().append("svg").append("g");
             gEnter.append("g").attr("class", "x axis");
+            gEnter.append("g").attr("class", "sub axis");
 
             // Update the outer dimensions.
             svg.attr("width", width)
@@ -79,20 +89,24 @@ st.timeline = function() {
 
             // Update the x-axis.
             var axis = g.select(".x.axis")
+                .attr("transform", "translate(0," + (availableHeight-20) + ")")
+
+            var axis2 = g.select(".sub.axis")
                 .attr("transform", "translate(0," + availableHeight + ")")
 
+            axis2.call(sub_axis)
             axis.call(x_axis);
 
             var nodes = g.selectAll(".node").data(data);
 
-            var rect = nodes.select(".rect");
+//            var rect = nodes.select(".rect");
             var text = nodes.select(".text");
 
             //update selection
-            rect
-                .attr("x", function(d) { return x_pos(d.startdate) })
-                .attr("y", function(d, i) { return d.y_pos })
-                .attr("width", function(d) { return x_width(d) })
+//            rect
+//                .attr("x", function(d) { return x_pos(d.startdate) })
+//                .attr("y", function(d, i) { return d.y_pos })
+//                .attr("width", function(d) { return x_width(d) })
 
             text
                 .attr("x", function(d) { return x_pos(d.startdate) + h_buffer })
@@ -118,7 +132,6 @@ st.timeline = function() {
                 .attr("width", function(d) { return x_width(d) })
                 .attr("height", row_height)
                 .attr("pointer-events", "none")
-                .attr("dx", "1em")
                 .append('xhtml:div')
                 .attr('class', 'foreign')
                 .html(function(d) { return d.title })
@@ -128,7 +141,8 @@ st.timeline = function() {
 
             function zoom(e) {
 
-                svg.select(".axis").call(x_axis);
+                svg.select(".x").call(x_axis);
+                svg.select(".sub").call(sub_axis);
 
 //                nodes.select(".rect")
 //                    .attr("x", function(d) { return x_pos(d.startdate); })

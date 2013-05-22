@@ -41,7 +41,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="9" selection-start="993" selection-end="993" vertical-scroll-proportion="-26.916666">
+            <state line="25" column="67" selection-start="436" selection-end="436" vertical-scroll-proportion="-15.625">
               <folding />
             </state>
           </provider>
@@ -77,7 +77,7 @@
       <file leaf-file-name="timeline.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="61" selection-start="5543" selection-end="5543" vertical-scroll-proportion="0.8469388">
+            <state line="58" column="20" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.67346936">
               <folding />
             </state>
           </provider>
@@ -485,13 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="9" selection-start="993" selection-end="993" vertical-scroll-proportion="-26.916666">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/node-static/lib/node-static.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="83" column="52" selection-start="2622" selection-end="2622" vertical-scroll-proportion="0.030612245">
@@ -499,9 +492,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="67" selection-start="436" selection-end="436" vertical-scroll-proportion="-15.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="61" selection-start="5543" selection-end="5543" vertical-scroll-proportion="0.8469388">
+        <state line="58" column="20" selection-start="2049" selection-end="2049" vertical-scroll-proportion="0.67346936">
           <folding />
         </state>
       </provider>
