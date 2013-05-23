@@ -15,7 +15,8 @@
         .sub path,
         .sub line {
             fill: none;
-            stroke: none;
+            stroke: black;
+            /*stroke: none;*/
             shape-rendering: crispEdges;
         }
 
@@ -64,7 +65,7 @@
 
 <div id="graph"></div>
 
-<input type="range" id="slider" />
+<input type="range" id="slider" min="1" max="30"/>
 
 <button id="button">click me</button>
 
@@ -78,7 +79,7 @@
 
     console.log('starting timeline...')
 
-    var root_url = 'http://sparrowman-d3timelineserver.jit.su/'; //'http://localhost:3000/'; //
+    var root_url = 'http://sparrowman-d3timelineserver.jit.su/'//'http://localhost:3000/';
 
     d3.json(root_url + 'timeline/1234', callback_function);
 
@@ -92,7 +93,10 @@
             return d.enddate && d.enddate > d.startdate;
         })
 
-        var timeline = st.timeline();
+        var timeline = st.timeline()
+                         .width(800)
+                         .height(500)
+                         .gap(30);
 
         var selection = d3.select("#graph")
                           .datum(events)
@@ -111,9 +115,12 @@
               .call(timeline);
         })
 
-        d3.select('#slider').on("click", function(e) {
-            console.log('hidey hi');
-            console.log(this.value);
+        d3.select('#slider').on("change", function(e) {
+            console.log('changing slider to : ' + this.value/2);
+
+            timeline.gap(this.value/2);
+
+            d3.select("#graph").call(timeline);
         })
     }
 

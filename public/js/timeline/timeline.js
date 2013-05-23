@@ -12,7 +12,7 @@ st.timeline = function() {
         , width = 1800
         , height = 600
         , date_format = d3.time.format("%Y-%m-%d %X")
-        , axis_buffer = 60
+        , axis_buffer = 80
         , row_height = 25
         , h_buffer = 5
         , row_padding = 10
@@ -45,7 +45,7 @@ st.timeline = function() {
                 ,   y_pos = function(d) { return availableHeight - axis_buffer - (paddedRowHeight * getLane(0, d)) }
 
             var x_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(5).tickFormat(d3.time.format('%B'))//.tickSize(6, 0);
-            ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2);
+            ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'));
 
             //create dataprovider containing item positions
             //the lane property is used to get the y position
@@ -73,14 +73,16 @@ st.timeline = function() {
 
             // Update the inner dimensions.
             var g = svg.select("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+                .attr("width", availableWidth)
+                .attr("height", availableHeight);
 
             // Update the x-axis.
             var axis = g.select(".x.axis")
-                .attr("transform", "translate(0," + (availableHeight-20) + ")")
+                .attr("transform", "translate(0," + (availableHeight-40) + ")")
 
             var axis2 = g.select(".sub.axis")
-                .attr("transform", "translate(0," + availableHeight + ")")
+                .attr("transform", "translate(0," + (availableHeight-20) + ")")
 
             axis2.call(sub_axis)
             axis.call(x_axis);
