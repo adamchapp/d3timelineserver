@@ -1,7 +1,7 @@
 {
     "name": "timeline",
     "description": "Timeline component",
-    "version": "0.0.1-8",
+    "version": "0.0.1-11",
     "private": true,
     "dependencies": {
         "express": "3.x",

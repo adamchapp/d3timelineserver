@@ -90,8 +90,10 @@
         var events = data["GetResult"][0].events;
 
         events = events.filter(function(d) {
-            return d.enddate && d.enddate > d.startdate;
+            return d.enddate && d.enddate >= d.startdate;
         })
+
+        console.log(events.length);
 
         var timeline = st.timeline()
                          .width(800)

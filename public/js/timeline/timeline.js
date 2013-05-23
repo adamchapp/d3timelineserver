@@ -45,7 +45,7 @@ st.timeline = function() {
                 ,   y_pos = function(d) { return availableHeight - axis_buffer - (paddedRowHeight * getLane(0, d)) }
 
             var x_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(5).tickFormat(d3.time.format('%B'))//.tickSize(6, 0);
-            ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'));
+            ,   sub_axis = d3.svg.axis().scale(x_scale).orient("top").ticks(2).tickFormat(d3.time.format('%Y'));
 
             //create dataprovider containing item positions
             //the lane property is used to get the y position
@@ -92,8 +92,8 @@ st.timeline = function() {
             var text = nodes.select(".text");
 
             text
-                .attr("x", function(d) { return x_pos(d.startdate) + h_buffer })
-                .attr("y", function(d, i) { return d.y_pos + (row_height/2) - row_padding })
+                .attr("x", function(d) { return x_pos(d.startdate) })
+                .attr("y", function(d, i) { return d.y_pos })
                 .attr("width", function(d) { return x_width(d) })
 
             //enter selection
@@ -162,7 +162,7 @@ st.timeline = function() {
     };
     chart.gap = function(_x) {
         if (!arguments.length) return row_padding;
-        row_padding = _x;
+        row_padding = parseInt(_x);
         return this;
     };
 
