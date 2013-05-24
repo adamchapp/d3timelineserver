@@ -6,10 +6,12 @@ Description
 The app is a node.js server running Express. There are various endpoints, but going to the default endpoint will serve up the HTML page. The front end
 is a timeline component based on the D3 library (http://d3js.org)
 
-# Goals #
+# To do #
 
-- Set up default route to server index.html and d3 plugins
-- Add timeline json route
-- Look into password protection for the JSON endpoints
+- Grid lines
+- Event highlighting (on click and on selection)
+- Go to event (needs to adjust domain and zoom level)
+- Text based filtering
+- API (goToEvent, refresh, resize, load, getEvent, filter)
 
 
