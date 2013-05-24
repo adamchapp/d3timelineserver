@@ -5,10 +5,19 @@ var express = require('express')
 
 var app = express();
 
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+
 app.configure(function(){
-  app.set('port', 80);
+  app.set('port', 3000);
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(allowCrossDomain);
   app.use(app.router);
   app.use(express.static('public', __dirname + 'public'));
 });
@@ -24,3 +33,6 @@ app.get('/Timeline/:id', routes.timeline);  //if this doesn't work try using OPT
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+
+

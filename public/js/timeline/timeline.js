@@ -8,24 +8,33 @@
 
 st.timeline = function() {
 
+    //CONSTANTS
+    const MONTH_AXIS = '.month';
+    const YEAR_AXIS = '.year';
+
     var margin = {top: 30, right: 20, bottom: 50, left: 20}
         , width = 1800
         , height = 600
         , date_format = d3.time.format("%Y-%m-%d %X")
-        , axis_buffer = 80
+        , axis_buffer = 50
         , row_height = 25
         , h_buffer = 5
-        , row_padding = 10
+        , row_padding = 2
+        , x_scale = d3.time.scale()
 
     var dispatch = d3.dispatch('customHover');
 
     function chart(selection) {
 
-        var availableWidth = width - margin.left - margin.right;
-        var availableHeight = height - margin.top - margin.bottom;
-        var paddedRowHeight = row_height + row_padding;
-
         selection.each(function(data) {
+
+            var bottom_line = height - margin.bottom - margin.top - axis_buffer;
+            var padded_row_height = row_height + row_padding;
+
+            var lanes = []
+            , x_pos = function(date) { return x_scale(date_format.parse(date))}
+            , x_width = function(d) { return x_pos(d.enddate) - x_pos(d.startdate)}
+            , y_pos = function(d) { return bottom_line - (padded_row_height * getLane(0, d)) };
 
             //sort data
             data = data.sort(function(a, b){ return d3.ascending(a.startdate, b.startdate); })
@@ -33,19 +42,13 @@ st.timeline = function() {
             var ext = d3.extent(data, function(d) { return date_format.parse(d.startdate)});
 
             //set up scale
-            var x_scale = d3.time.scale()
+            x_scale
                 .domain(ext)
-                .range([0, availableWidth]);
+                .range([0, width - margin.left - margin.right]);
 
             var zoom = d3.behavior.zoom().x(x_scale).scale(3).scaleExtent([1, 1000]).on("zoom", zoom)
-
-            var lanes = []
-                ,   x_pos = function(date) { return x_scale(date_format.parse(date))}
-                ,   x_width = function(d) { return x_pos(d.enddate) - x_pos(d.startdate)}
-                ,   y_pos = function(d) { return availableHeight - axis_buffer - (paddedRowHeight * getLane(0, d)) }
-
-            var x_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(5).tickFormat(d3.time.format('%B'))//.tickSize(6, 0);
-            ,   sub_axis = d3.svg.axis().scale(x_scale).orient("top").ticks(2).tickFormat(d3.time.format('%Y'));
+            ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b'))//.tickSize(6, 0);
+            ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'));
 
             //create dataprovider containing item positions
             //the lane property is used to get the y position
@@ -63,8 +66,8 @@ st.timeline = function() {
 
             // Otherwise, create the skeletal chart.
             var gEnter = svg.enter().append("svg").append("g");
-            gEnter.append("g").attr("class", "x axis");
-            gEnter.append("g").attr("class", "sub axis");
+            gEnter.append("g").attr("class", "month axis");
+            gEnter.append("g").attr("class", "year axis");
 
             // Update the outer dimensions.
             svg.attr("width", width)
@@ -73,23 +76,29 @@ st.timeline = function() {
 
             // Update the inner dimensions.
             var g = svg.select("g")
+                .attr("class", "background")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-                .attr("width", availableWidth)
-                .attr("height", availableHeight);
+                .attr("width", width - margin.left - margin.right )
+                .attr("height", height - margin.bottom - margin.top);
 
             // Update the x-axis.
-            var axis = g.select(".x.axis")
-                .attr("transform", "translate(0," + (availableHeight-40) + ")")
+            var axis = g.select(".month")
+                .attr("transform", "translate(0," + (height - margin.bottom - margin.top - 20) + ")")
+                .call(x_axis);
 
-            var axis2 = g.select(".sub.axis")
-                .attr("transform", "translate(0," + (availableHeight-20) + ")")
+            var axis2 = g.select(".year")
+                .attr("transform", "translate(0," + (height - margin.bottom - margin.top ) + ")")
+                .call(sub_axis);
 
-            axis2.call(sub_axis)
-            axis.call(x_axis);
+            //update grid lines
+            svg.append("g")
+                .attr("class", "grid")
+                .call(x_axis)
+                .tickSize(-width, 0, 0);
 
             var nodes = g.selectAll(".node").data(data);
 
-            var text = nodes.select(".text");
+            var text = nodes.select(".foreignObject");
 
             text
                 .attr("x", function(d) { return x_pos(d.startdate) })
@@ -103,12 +112,12 @@ st.timeline = function() {
             nodeEnter.append('foreignObject')
                 .attr("x", function(d) { return x_pos(d.startdate) })
                 .attr("y", function(d, i) { return d.y_pos })
-                .attr("class", "text")
+                .attr("class", "event")
                 .attr("width", function(d) { return x_width(d) })
                 .attr("height", row_height)
                 .attr("pointer-events", "none")
                 .append('xhtml:div')
-                .attr('class', 'foreign')
+                .attr('class', 'foreignObject')
                 .html(function(d) { return d.title })
 
             //exit selection
@@ -116,10 +125,10 @@ st.timeline = function() {
 
             function zoom(e) {
 
-                svg.select(".x").call(x_axis);
-                svg.select(".sub").call(sub_axis);
+                svg.select(".month").call(x_axis);
+                svg.select(".year").call(sub_axis);
 
-                nodes.select(".text")
+                nodes.select(".event")
                     .attr("x", function(d) {
                         d.end_pos = x_pos(d.enddate);
                         d.start_pos = ( x_pos(d.startdate) < 0 && d.end_pos > 0 ) ? "0" : x_pos(d.startdate);

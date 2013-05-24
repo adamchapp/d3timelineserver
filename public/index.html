@@ -5,27 +5,55 @@
 
     <style>
 
-        .x path,
-        .x line {
+        .month path,
+        .month line {
             fill: none;
             stroke: black;
             shape-rendering: crispEdges;
         }
 
-        .sub path,
-        .sub line {
+        .year path,
+        .year line {
             fill: none;
             stroke: black;
-            /*stroke: none;*/
+            stroke: none;
             shape-rendering: crispEdges;
         }
 
-        .sub {
+        .grid .tick {
+            stroke: lightgrey;
+            opacity: 0.7;
+        }
+        .grid path {
+            stroke-width: 0;
+        }
+
+        .axis {
+            font-family: "Helvetica Neue", Helvetica, Arial;
+            font-size: 12px;
+            color: #ffffff;
+            height: 30px;
+        }
+
+        .year {
+
             font-weight: bold;
+            font-size: 16px;
         }
 
-        .foreign {
-            background-color: #3691ff;
+        .background {
+
+        }
+
+        /* this refers to the background g plus each div is wrapped in a g element */
+        g {
+
+        }
+
+        .foreignObject {
+            font-family: "Helvetica Neue", Helvetica, Arial;
+            color: #FFFFFF;
+            background-color: #71beff;
             padding-top: 4px;
             padding-bottom: 5px;
             padding-left: 5px;
@@ -33,31 +61,6 @@
 
             line-height: 18px;
         }
-
-        recto {
-            position:absolute;
-            z-index:5;
-            top:5px;
-            left:5px;
-            width:10px;
-        }
-
-        rect {
-            fill: #4eafd7;
-        }
-
-        text {
-            font-family: "Helvetica Neue", Helvetica, Arial;
-            font-size: 12px;
-        }
-
-        .text {
-            font-family: "Helvetica Neue", Helvetica, Arial;
-            font-size: 12px;
-            color: #ffffff;
-            height: 30px;
-        }
-
     </style>
 
 </head>
@@ -69,8 +72,8 @@
 
 <button id="button">click me</button>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js" charset="utf-8"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js" charset="utf-8"></script>
 
 <script src="js/timeline/core.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/timeline/timeline.js" type="text/javascript" charset="utf-8"></script>
@@ -79,7 +82,7 @@
 
     console.log('starting timeline...')
 
-    var root_url = 'http://sparrowman-d3timelineserver.jit.su/'//'http://localhost:3000/';
+    var root_url = 'http://localhost:3000/';//'http://sparrowman-d3timelineserver.jit.su/'//
 
     d3.json(root_url + 'timeline/1234', callback_function);
 
@@ -96,9 +99,9 @@
         console.log(events.length);
 
         var timeline = st.timeline()
-                         .width(800)
-                         .height(500)
-                         .gap(30);
+                         .width(1000)
+                         .height(800)
+                         .gap(2);
 
         var selection = d3.select("#graph")
                           .datum(events)
@@ -107,21 +110,16 @@
         var toggle = false;
 
         d3.select("#button").on("click", function(e) {
-
             toggle = !toggle;
-
             var eventSelection = (toggle) ? events.slice(0, 60) : events;
-
             d3.select("#graph")
               .datum(eventSelection)
               .call(timeline);
         })
 
         d3.select('#slider').on("change", function(e) {
-            console.log('changing slider to : ' + this.value/2);
-
-            timeline.gap(this.value/2);
-
+            console.log('changing slider to : ' + this.value);
+            timeline.gap(this.value);
             d3.select("#graph").call(timeline);
         })
     }
