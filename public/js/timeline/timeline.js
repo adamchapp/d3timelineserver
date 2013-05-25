@@ -12,9 +12,10 @@ st.timeline = function() {
     const MONTH_AXIS = '.month';
     const YEAR_AXIS = '.year';
 
-    var margin = {top: 30, right: 20, bottom: 50, left: 20}
+    var margin = {top: 30, right: 3, bottom: 50, left: 2}
         , width = 1800
         , height = 600
+        , min_event_width = 10
         , date_format = d3.time.format("%Y-%m-%d %X")
         , axis_buffer = 50
         , row_height = 25
@@ -28,10 +29,9 @@ st.timeline = function() {
 
         selection.each(function(data) {
 
-            var bottom_line = height - margin.bottom - margin.top - axis_buffer;
-            var padded_row_height = row_height + row_padding;
-
-            var lanes = []
+            var bottom_line = height - margin.bottom - margin.top - axis_buffer
+            , lanes = []
+            , padded_row_height = row_height + row_padding
             , x_pos = function(date) { return x_scale(date_format.parse(date))}
             , x_width = function(d) { return x_pos(d.enddate) - x_pos(d.startdate)}
             , y_pos = function(d) { return bottom_line - (padded_row_height * getLane(0, d)) };
@@ -39,35 +39,42 @@ st.timeline = function() {
             //sort data
             data = data.sort(function(a, b){ return d3.ascending(a.startdate, b.startdate); })
 
-            var ext = d3.extent(data, function(d) { return date_format.parse(d.startdate)});
+            //if data is new, map it to new positions
+            var sortData = ( chart.data !== data ) ? true : false;
 
-            //set up scale
-            x_scale
-                .domain(ext)
-                .range([0, width - margin.left - margin.right]);
+            if ( sortData ) {
 
-            var zoom = d3.behavior.zoom().x(x_scale).scale(3).scaleExtent([1, 1000]).on("zoom", zoom)
-            ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b'))//.tickSize(6, 0);
-            ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'));
+                console.log('sorting the data');
 
-            //create dataprovider containing item positions
-            //the lane property is used to get the y position
-            data.map(function(item) {
-                item.start_pos = x_pos(item.startdate)
-                item.end_pos = x_pos(item.enddate);
-                item.y_pos = y_pos(item);
-            })
+                x_scale
+                    .domain(d3.extent(data, function(d) { return date_format.parse(d.startdate)}))
+                    .range([0, width - margin.left - margin.right]);
+
+                data.map(function(item) {
+                    item.start_pos = x_pos(item.startdate)
+                    item.end_pos = x_pos(item.enddate);
+                    item.y_pos = y_pos(item);
+                })
+
+            }
+
+            var zoom = d3.behavior.zoom().x(x_scale).scaleExtent([1, 1000]).on("zoom", zoom)
+                ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b')).ticks(10, 1).tickSize(6, 6)
+                ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'))
+                ,   grid_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat("").tickSize(-height, 0, 0);
 
             chart.update = function() { chart(selection) };
             chart.container = this;
+            chart.data = data;
 
             // Select the svg element, if it exists.
             var svg = d3.select(this).selectAll("svg").data([data]);
 
-            // Otherwise, create the skeletal chart.
+            // Otherwise, create the skeletal chart (background, axes and grid lines)
             var gEnter = svg.enter().append("svg").append("g");
             gEnter.append("g").attr("class", "month axis");
             gEnter.append("g").attr("class", "year axis");
+            gEnter.append("g").attr("class", "grid");
 
             // Update the outer dimensions.
             svg.attr("width", width)
@@ -79,45 +86,38 @@ st.timeline = function() {
                 .attr("class", "background")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
                 .attr("width", width - margin.left - margin.right )
-                .attr("height", height - margin.bottom - margin.top);
+                .attr("height", height - margin.top - margin.bottom);
 
             // Update the x-axis.
             var axis = g.select(".month")
-                .attr("transform", "translate(0," + (height - margin.bottom - margin.top - 20) + ")")
+                .attr("transform", "translate(0," + (height - margin.top - margin.bottom - 20) + ")")
                 .call(x_axis);
 
             var axis2 = g.select(".year")
-                .attr("transform", "translate(0," + (height - margin.bottom - margin.top ) + ")")
+                .attr("transform", "translate(0," + (height - margin.top - margin.bottom ) + ")")
                 .call(sub_axis);
 
-            //update grid lines
-            svg.append("g")
-                .attr("class", "grid")
-                .call(x_axis)
-                .tickSize(-width, 0, 0);
+            //draw the grid lines
+            var grid = g.select(".grid")
+                .attr("transform", "translate(0," + (height - margin.top - margin.bottom ) + ")")
+                .call(grid_axis);
 
             var nodes = g.selectAll(".node").data(data);
 
-            var text = nodes.select(".foreignObject");
-
-            text
-                .attr("x", function(d) { return x_pos(d.startdate) })
-                .attr("y", function(d, i) { return d.y_pos })
-                .attr("width", function(d) { return x_width(d) })
+            var text = nodes.select(".event");
 
             //enter selection
             var nodeEnter = nodes.enter().append("g").attr("class", "node");
 
-            //new labels
+            //new events
             nodeEnter.append('foreignObject')
                 .attr("x", function(d) { return x_pos(d.startdate) })
-                .attr("y", function(d, i) { return d.y_pos })
-                .attr("class", "event")
+                .attr("y", function(d, i) { return i*20})//d.y_pos })
+                .attr('class', 'event')
                 .attr("width", function(d) { return x_width(d) })
                 .attr("height", row_height)
                 .attr("pointer-events", "none")
                 .append('xhtml:div')
-                .attr('class', 'foreignObject')
                 .html(function(d) { return d.title })
 
             //exit selection
@@ -127,6 +127,7 @@ st.timeline = function() {
 
                 svg.select(".month").call(x_axis);
                 svg.select(".year").call(sub_axis);
+                svg.select(".grid").call(grid_axis);
 
                 nodes.select(".event")
                     .attr("x", function(d) {
@@ -134,6 +135,7 @@ st.timeline = function() {
                         d.start_pos = ( x_pos(d.startdate) < 0 && d.end_pos > 0 ) ? "0" : x_pos(d.startdate);
                         return d.start_pos;
                     })
+                    .attr("y", function(d, i) { return d.y_pos })
                     .attr("width", function(d) {
                         return d.end_pos - d.start_pos;
                     })
