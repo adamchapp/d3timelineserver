@@ -11,7 +11,7 @@
     <file path="/index.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368734314454" ignored="false" />
     <file path="/index.html" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1369411730898" ignored="false" />
     <file path="/timeline.css" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1369500548309" ignored="false" />
-    <file path="/timeline.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1369501069980" ignored="false" />
+    <file path="/timeline.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1369501801713" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,7 @@
       <file leaf-file-name="timeline.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/timeline.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="66" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0">
+            <state line="22" column="85" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -52,7 +52,7 @@
       <file leaf-file-name="timeline.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="68" selection-start="3093" selection-end="3093" vertical-scroll-proportion="0.8681319">
+            <state line="119" column="62" selection-start="4671" selection-end="4671" vertical-scroll-proportion="0.6703297">
               <folding />
             </state>
           </provider>
@@ -472,13 +472,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/timeline.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="66" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="0" selection-start="764" selection-end="764" vertical-scroll-proportion="0.7407407">
@@ -486,9 +479,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/timeline.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="85" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="68" selection-start="3093" selection-end="3093" vertical-scroll-proportion="0.8681319">
+        <state line="119" column="62" selection-start="4671" selection-end="4671" vertical-scroll-proportion="0.6703297">
           <folding />
         </state>
       </provider>

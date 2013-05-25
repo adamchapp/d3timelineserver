@@ -93,18 +93,20 @@ st.timeline = function() {
                 .attr("transform", "translate(0," + (height - margin.top - margin.bottom - 20) + ")")
                 .call(x_axis);
 
+            //draw the grid lines
+            var grid = g.select(".grid")
+                .attr("transform", "translate(0," + (height - margin.top - margin.bottom - 20 ) + ")")
+                .call(grid_axis);
+
             var axis2 = g.select(".year")
                 .attr("transform", "translate(0," + (height - margin.top - margin.bottom ) + ")")
                 .call(sub_axis);
 
-            //draw the grid lines
-            var grid = g.select(".grid")
-                .attr("transform", "translate(0," + (height - margin.top - margin.bottom ) + ")")
-                .call(grid_axis);
-
             var nodes = g.selectAll(".node").data(data);
 
             var text = nodes.select(".event");
+
+            text.attr("y", function(d) { return d.y_pos });
 
             //enter selection
             var nodeEnter = nodes.enter().append("g").attr("class", "node");
@@ -112,7 +114,7 @@ st.timeline = function() {
             //new events
             nodeEnter.append('foreignObject')
                 .attr("x", function(d) { return x_pos(d.startdate) })
-                .attr("y", function(d, i) { return i*20})//d.y_pos })
+                .attr("y", function(d, i) { return d.y_pos })
                 .attr('class', 'event')
                 .attr("width", function(d) { return x_width(d) })
                 .attr("height", row_height)
@@ -135,10 +137,8 @@ st.timeline = function() {
                         d.start_pos = ( x_pos(d.startdate) < 0 && d.end_pos > 0 ) ? "0" : x_pos(d.startdate);
                         return d.start_pos;
                     })
-                    .attr("y", function(d, i) { return d.y_pos })
-                    .attr("width", function(d) {
-                        return d.end_pos - d.start_pos;
-                    })
+                    .attr("y", function(d) { return d.y_pos })
+                    .attr("width", function(d) { return d.end_pos - d.start_pos; })
             }
 
             function getLane(currentLane, event) {
