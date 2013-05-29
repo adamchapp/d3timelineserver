@@ -8,6 +8,8 @@
 
 st.timeline = function() {
 
+    //RANDOM COMMENT FOR NEW BRANCH - FIXED LABELS
+
     //CONSTANTS
     const MONTH_AXIS = '.month';
     const YEAR_AXIS = '.year';
