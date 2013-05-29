@@ -12,14 +12,16 @@ st.timeline = function() {
     const MONTH_AXIS = '.month';
     const YEAR_AXIS = '.year';
 
-    var margin = {top: 0, right: 2, bottom: 50, left: 2}
-        , containerWidth = 1800
-        , containerHeight = 600
+    var margin = {top: 30, right: 3, bottom: 50, left: 2}
+        , width = 1800
+        , height = 600
+        , min_event_width = 10
         , date_format = d3.time.format("%Y-%m-%d %X")
-        , v_buffer = .1
+        , axis_buffer = 50
+        , row_height = 25
         , h_buffer = 5
+        , row_padding = 2
         , x_scale = d3.time.scale()
-        , y_scale = d3.scale.ordinal()
 
     var dispatch = d3.dispatch('customHover');
 
@@ -27,12 +29,12 @@ st.timeline = function() {
 
         selection.each(function(data) {
 
-            var width = containerWidth - margin.left - margin.right;
-            var height = containerHeight - margin.top - margin.bottom;
-
-            var lanes = []
+            var bottom_line = height - margin.bottom - margin.top - axis_buffer
+            , lanes = []
+            , padded_row_height = row_height + row_padding
             , x_pos = function(date) { return x_scale(date_format.parse(date))}
             , x_width = function(d) { return x_pos(d.enddate) - x_pos(d.startdate)}
+            , y_pos = function(d) { return bottom_line - (padded_row_height * getLane(0, d)) };
 
             //sort data
             data = data.sort(function(a, b){ return d3.ascending(a.startdate, b.startdate); })
@@ -40,32 +42,23 @@ st.timeline = function() {
             //if data is new, map it to new positions
             var sortData = ( chart.data !== data ) ? true : false;
 
-            var lengthyEvents = data;
-            var shortEvents = [];
-
             if ( sortData ) {
+
+                console.log('sorting the data');
 
                 x_scale
                     .domain(d3.extent(data, function(d) { return date_format.parse(d.startdate)}))
-                    .range([0, width]);
+                    .range([0, width - margin.left - margin.right]);
 
                 data.map(function(item) {
                     item.start_pos = x_pos(item.startdate)
                     item.end_pos = x_pos(item.enddate);
-                    item.lane = getLane(0, item);
+                    item.y_pos = y_pos(item);
                 })
-
             }
 
-            // y-scale (inverted domain)
-            // NB this should come after the data is mapped otherwise we don't know
-            // the scale extents
-            y_scale
-                .domain(d3.range(lanes.length))
-                .rangeRoundBands([height, 0], v_buffer);
-
             var zoom = d3.behavior.zoom().x(x_scale).scaleExtent([1, 1000]).on("zoom", zoom)
-                ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b')).ticks(10, 1).tickSize(9, 6, 0).tickSubdivide(9)
+                ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b')).ticks(10, 1).tickSize(6, 6)
                 ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'))
                 ,   grid_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat("").tickSize(-height, 0, 0);
 
@@ -81,55 +74,56 @@ st.timeline = function() {
             gEnter.append("g").classed("month axis", true);
             gEnter.append("g").classed("year axis", true);
             gEnter.append("g").classed("grid", true);
-            gEnter.append("g").classed("nodes", true);
 
             // Update the outer dimensions.
-            svg.attr("width", containerWidth)
-                .attr("height", containerHeight)
+            svg.attr("width", width)
+                .attr("height", height)
                 .call(zoom);
 
             // Update the inner dimensions.
             var g = svg.select("g")
-                .classed("background", true)
+                .attr("class", "background")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-                .attr("width", width)
-                .attr("height", height);
+                .attr("width", width - margin.left - margin.right )
+                .attr("height", height - margin.top - margin.bottom);
 
             // Update the x-axis.
             var axis = g.select(".month")
-                .attr("transform", "translate(0," + height + ")")
+                .attr("transform", "translate(0," + (height - margin.top - margin.bottom - 20) + ")")
                 .call(x_axis);
 
             //draw the grid lines
             var grid = g.select(".grid")
-                .attr("transform", "translate(0," + height + ")")
+                .attr("transform", "translate(0," + (height - margin.top - margin.bottom - 20 ) + ")")
                 .call(grid_axis);
 
             var axis2 = g.select(".year")
-                .attr("transform", "translate(0," + (height + 20) + ")")
+                .attr("transform", "translate(0," + (height - margin.top - margin.bottom ) + ")")
                 .call(sub_axis);
 
-            var nodes = g.select(".nodes")
-                .selectAll(".node")
-                .data(data);
+            var nodes = g.selectAll(".node").data(data);
+
+            var text = nodes.select(".event");
+
+            text.attr("y", function(d) { return d.y_pos });
 
             //enter selection
             var nodeEnter = nodes.enter().append("g").attr("class", "node");
 
-            //exit selection
-            nodes.exit().remove();
-
             //new events
             nodeEnter.append('foreignObject')
                 .attr("x", function(d) { return x_pos(d.startdate) })
-                .attr("y", function(d) { return y_scale(d.lane) })
-                .attr("width", function(d) { return x_width(d) })
-                .attr("height", function(d) { return y_scale.rangeBand() })
+                .attr("y", function(d, i) { return d.y_pos })
                 .attr('class', 'event')
+                .attr("width", function(d) { return x_width(d) })
+                .attr("height", row_height)
                 .attr("pointer-events", "none")
                 .append('xhtml:div')
                 .on("mouseover", dispatch.customHover)
-                .html(function(d) { return d.title })
+                .html(function(d) { return d.title });
+
+            //exit selection
+            nodes.exit().remove();
 
             function zoom(e) {
 
@@ -138,8 +132,13 @@ st.timeline = function() {
                 svg.select(".grid").call(grid_axis);
 
                 nodes.select(".event")
-                    .attr("x", function(d) { return x_pos(d.startdate); })
-                    .attr("width", function(d) { return x_width(d); })
+                    .attr("x", function(d) {
+                        d.end_pos = x_pos(d.enddate);
+                        d.start_pos = ( x_pos(d.startdate) < 0 && d.end_pos > 0 ) ? "0" : x_pos(d.startdate);
+                        return d.start_pos;
+                    })
+                    .attr("y", function(d) { return d.y_pos })
+                    .attr("width", function(d) { return d.end_pos - d.start_pos; })
             }
 
             function getLane(currentLane, event) {
@@ -163,18 +162,18 @@ st.timeline = function() {
     }
 
     chart.width = function(_x) {
-        if (!arguments.length) return containerWidth;
-        containerWidth = parseInt(_x);
+        if (!arguments.length) return width;
+        width = parseInt(_x);
         return this;
     };
     chart.height = function(_x) {
-        if (!arguments.length) return containerHeight;
-        containerHeight = parseInt(_x);
+        if (!arguments.length) return height;
+        height = parseInt(_x);
         return this;
     };
     chart.gap = function(_x) {
-        if (!arguments.length) return v_buffer;
-        v_buffer = _x;
+        if (!arguments.length) return row_padding;
+        row_padding = parseInt(_x);
         return this;
     };
 
