@@ -35,7 +35,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="102" selection-start="1408" selection-end="1408" vertical-scroll-proportion="-15.0">
+            <state line="52" column="38" selection-start="1623" selection-end="1623" vertical-scroll-proportion="-11.958333">
               <folding />
             </state>
           </provider>
@@ -44,7 +44,7 @@
       <file leaf-file-name="timeline.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/timeline.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="63" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
+            <state line="68" column="82" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -53,7 +53,7 @@
       <file leaf-file-name="timeline.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="86" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.23228346">
+            <state line="127" column="44" selection-start="4947" selection-end="4947" vertical-scroll-proportion="-0.122047246">
               <folding />
             </state>
           </provider>
@@ -92,8 +92,8 @@
         <option value="$PROJECT_DIR$/public/js/timeline/SimpleTimeline.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/old-timeline.js" />
         <option value="$PROJECT_DIR$/public/css/timeline.css" />
-        <option value="$PROJECT_DIR$/public/js/timeline/timeline.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/js/timeline/timeline.js" />
       </list>
     </option>
   </component>
@@ -410,7 +410,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -493,21 +493,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/timeline.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="63" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0">
+        <state line="68" column="82" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="102" selection-start="1408" selection-end="1408" vertical-scroll-proportion="-15.0">
+        <state line="52" column="38" selection-start="1623" selection-end="1623" vertical-scroll-proportion="-11.958333">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="86" selection-start="1482" selection-end="1482" vertical-scroll-proportion="0.23228346">
+        <state line="127" column="44" selection-start="4947" selection-end="4947" vertical-scroll-proportion="-0.122047246">
           <folding />
         </state>
       </provider>

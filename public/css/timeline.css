@@ -57,7 +57,11 @@ svg {
 
 /* EVENTS */
 
-.event {
+.short-event {
+    fill: #c9cdd6;
+}
+
+.long-event {
     display: inline-block;
     font-family: "Helvetica Neue", Helvetica, Arial;
     font-size: 12px;

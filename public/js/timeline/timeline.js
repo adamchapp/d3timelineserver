@@ -40,9 +40,6 @@ st.timeline = function() {
             //if data is new, map it to new positions
             var sortData = ( chart.data !== data ) ? true : false;
 
-            var lengthyEvents = data;
-            var shortEvents = [];
-
             if ( sortData ) {
 
                 x_scale
@@ -109,27 +106,37 @@ st.timeline = function() {
                 .attr("transform", "translate(0," + (height + 20) + ")")
                 .call(sub_axis);
 
-            var nodes = g.select(".nodes")
-                .selectAll(".node")
-                .data(data);
-
-            //enter selection
+            //create selections
+            var nodes = g.select(".nodes").selectAll(".node").data(data);
             var nodeEnter = nodes.enter().append("g").attr("class", "node");
 
             //exit selection
             nodes.exit().remove();
 
-            //new events
-            nodeEnter.append('foreignObject')
+            //enter selection - long events
+            nodeEnter
+                .filter(function(d) { return d.enddate > d.startdate; })
+                .append('rect')
                 .attr("x", function(d) { return x_pos(d.startdate) })
                 .attr("y", function(d) { return y_scale(d.lane) })
                 .attr("width", function(d) { return x_width(d) })
                 .attr("height", function(d) { return y_scale.rangeBand() })
-                .attr('class', 'event')
+                .classed('long-event', true)
                 .attr("pointer-events", "none")
-                .append('xhtml:div')
-                .on("mouseover", dispatch.customHover)
-                .html(function(d) { return d.title })
+                .on("mouseover", dispatch)
+
+            //enter selection - short events
+            nodeEnter
+                .filter(function(d) { return d.enddate === d.startdate; })
+                .append("circle")
+                .attr("cx", function(d) { return x_pos(d.startdate) })
+                .attr("cy", function(d) { return y_scale(d.lane) })
+                .attr("r", function(d) { return y_scale.rangeBand() / 2 })
+                .classed('short-event', true);
+
+            //TO RESTORE FOREIGN OBJECT uncomment these two lines and change 'rect' to 'foreignObject'
+//                .append('xhtml:div')
+//                .html(function(d) { return d.title })
 
             function zoom(e) {
 
@@ -137,9 +144,12 @@ st.timeline = function() {
                 svg.select(".year").call(sub_axis);
                 svg.select(".grid").call(grid_axis);
 
-                nodes.select(".event")
+                nodes.select(".long-event")
                     .attr("x", function(d) { return x_pos(d.startdate); })
                     .attr("width", function(d) { return x_width(d); })
+
+                nodes.select(".short-event")
+                    .attr("cx", function(d) { return x_pos(d.startdate); })
             }
 
             function getLane(currentLane, event) {

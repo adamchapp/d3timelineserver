@@ -35,14 +35,14 @@
         var events = data["GetResult"][0].events;
 
         events = events.filter(function(d) {
-            return d.enddate && d.enddate > d.startdate;
+            return d.enddate && d.enddate >= d.startdate;
         })
 
         console.log(events.length);
 
         var timeline = st.timeline()
-                         .width(700)
-                         .height(400)
+                         .width(1200)
+                         .height(800)
                          .gap(.1)
                          .on('customHover', function(d) {
                              console.log('custom hover!');
