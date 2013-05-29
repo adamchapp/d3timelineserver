@@ -32,7 +32,7 @@ svg {
 .year path,
 .year line {
     fill: none;
-    stroke: black;
+    stroke: #000000;
     stroke: none;
     shape-rendering: crispEdges;
 }
@@ -61,18 +61,21 @@ svg {
     fill: #c9cdd6;
 }
 
-.long-event {
-    display: inline-block;
-    font-family: "Helvetica Neue", Helvetica, Arial;
-    font-size: 12px;
+.event {
     color: #FFFFFF;
-    background-color: #b1a0ff;
+    fill: #38b7ff;
     padding-top: 4px;
     padding-bottom: 5px;
     padding-left: 5px;
     padding-right: 5px;
 
     line-height: 18px;
+}
+
+.event-text {
+    display: inline-block;
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial;
 }
 
 div.tooltip {

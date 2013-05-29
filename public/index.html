@@ -28,25 +28,34 @@
 
     d3.json(root_url + 'timeline/1234', callback_function);
 
-    function callback_function(data) {
+    var div = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
 
-        console.log('creating timeline');
+    function callback_function(data) {
 
         var events = data["GetResult"][0].events;
 
         events = events.filter(function(d) {
-            return d.enddate && d.enddate >= d.startdate;
+            return d.enddate && d.enddate > d.startdate;
         })
 
-        console.log(events.length);
+        var mouseOverHandler = function(d) {
+            div.transition().duration(200).style("opacity", .9);
+            div.html(d.title + "<br/>"  + d.startdate).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 28) + "px");
+        }
+
+        var mouseOutHandler = function(d) {
+            div.transition().duration(500).style("opacity", 0);
+        }
 
         var timeline = st.timeline()
                          .width(1200)
                          .height(800)
-                         .gap(.1)
-                         .click(function(d) {
-                             console.log('custom hover!');
-                         });
+                         .gap(.05)
+                         .mouseover(mouseOverHandler)
+                         .mouseout(mouseOutHandler)
+                         .click(function(d) { console.log('custom hover!'); });
 
         var selection = d3.select("#graph")
                           .datum(events)
