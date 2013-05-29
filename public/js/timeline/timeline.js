@@ -13,6 +13,12 @@ st.timeline = function() {
     const YEAR_AXIS = '.year';
 
     var margin = {top: 0, right: 2, bottom: 50, left: 2}
+        , clickHandler = function(d) { console.log('replace this with your own custom click handler') }
+        , mouseOverHandler = function(d) {
+            div.transition().duration(200).style("opacity", .9);
+            div.html(d.title + "<br/>"  + d.startdate).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 28) + "px");
+        }
+        , mouseOutHandler = function(d) { div.transition().duration(500).style("opacity", 0); }
         , containerWidth = 1800
         , containerHeight = 600
         , date_format = d3.time.format("%Y-%m-%d %X")
@@ -126,21 +132,6 @@ st.timeline = function() {
                 .attr("width", function(d) { return x_width(d) })
                 .attr("height", function(d) { return y_scale.rangeBand() })
                 .classed('long-event', true)
-                .on("mouseover", function(d) {
-                    div.transition()
-                        .duration(200)
-                        .style("opacity", .9);
-                    div .html(d.title + "<br/>"  + d.startdate)
-                        .style("left", (d3.event.pageX) + "px")
-                        .style("top", (d3.event.pageY - 28) + "px");
-
-                    dispatch();
-                })
-                .on("mouseout", function(d) {
-                    div.transition()
-                        .duration(500)
-                        .style("opacity", 0);
-                });
 
 //                .attr("pointer-events", "none");
 
@@ -152,6 +143,10 @@ st.timeline = function() {
                 .attr("cy", function(d) { return y_scale(d.lane) })
                 .attr("r", function(d) { return y_scale.rangeBand() / 2 })
                 .classed('short-event', true);
+
+            nodeEnter.on("click", clickHandler)
+                     .on("mouseover", mouseOverHandler)
+                     .on("mouseout", mouseOutHandler);
 
             function zoom(e) {
 
@@ -202,6 +197,21 @@ st.timeline = function() {
         v_buffer = _x;
         return this;
     };
+    chart.click = function(_x) {
+        if (!arguments.length) return clickHandler;
+        clickHandler = _x;
+        return this;
+    }
+    chart.mouseover = function(_x) {
+        if (!arguments.length) return mouseOverHandler;
+        mouseOverHandler = _x;
+        return this;
+    }
+    chart.mouseout = function(_x) {
+        if (!arguments.length) return mouseOutHandler;
+        mouseOutHandler = _x;
+        return this;
+    }
 
     d3.rebind(chart, dispatch, 'on');
 
