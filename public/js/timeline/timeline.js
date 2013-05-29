@@ -23,6 +23,10 @@ st.timeline = function() {
 
     var dispatch = d3.dispatch('customHover');
 
+    var div = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
     function chart(selection) {
 
         selection.each(function(data) {
@@ -122,8 +126,23 @@ st.timeline = function() {
                 .attr("width", function(d) { return x_width(d) })
                 .attr("height", function(d) { return y_scale.rangeBand() })
                 .classed('long-event', true)
-                .attr("pointer-events", "none")
-                .on("mouseover", dispatch)
+                .on("mouseover", function(d) {
+                    div.transition()
+                        .duration(200)
+                        .style("opacity", .9);
+                    div .html(d.title + "<br/>"  + d.startdate)
+                        .style("left", (d3.event.pageX) + "px")
+                        .style("top", (d3.event.pageY - 28) + "px");
+
+                    dispatch();
+                })
+                .on("mouseout", function(d) {
+                    div.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                });
+
+//                .attr("pointer-events", "none");
 
             //enter selection - short events
             nodeEnter
@@ -133,10 +152,6 @@ st.timeline = function() {
                 .attr("cy", function(d) { return y_scale(d.lane) })
                 .attr("r", function(d) { return y_scale.rangeBand() / 2 })
                 .classed('short-event', true);
-
-            //TO RESTORE FOREIGN OBJECT uncomment these two lines and change 'rect' to 'foreignObject'
-//                .append('xhtml:div')
-//                .html(function(d) { return d.title })
 
             function zoom(e) {
 

@@ -74,3 +74,18 @@ svg {
 
     line-height: 18px;
 }
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 180px;
+    height: 70px;
+    padding: 2px;
+    font: 12px "Helvetica Neue";
+    color: #ffffff;
+    background: grey;
+    border: 0px;
+    border-radius: 2px;
+    pointer-events: none;
+    vertical-align: middle;
+}
