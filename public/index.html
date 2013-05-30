@@ -18,7 +18,8 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js" charset="utf-8"></script>
 
 <script src="js/timeline/core.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/timeline/timeline.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/timeline/ruler.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/timeline/new-timeline.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
 
@@ -49,13 +50,7 @@
             div.transition().duration(500).style("opacity", 0);
         }
 
-        var timeline = st.timeline()
-                         .width(1200)
-                         .height(800)
-                         .gap(.05)
-                         .mouseover(mouseOverHandler)
-                         .mouseout(mouseOutHandler)
-                         .click(function(d) { console.log('custom hover!'); });
+        var timeline = d3.custom.timeline();
 
         var selection = d3.select("#graph")
                           .datum(events)
@@ -66,13 +61,15 @@
         d3.select("#button").on("click", function(e) {
             toggle = !toggle;
             var eventSelection = (toggle) ? events.slice(0, 60) : events;
+
+            console.log('using ' + eventSelection.length + ' items.');
+
             d3.select("#graph")
               .datum(eventSelection)
               .call(timeline);
         })
 
         d3.select('#slider').on("change", function(e) {
-            console.log('changing slider to : ' + this.value);
             timeline.gap(this.value/10);
             d3.select("#graph").call(timeline);
         })

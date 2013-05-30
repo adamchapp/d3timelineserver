@@ -68,7 +68,6 @@ svg {
     padding-bottom: 5px;
     padding-left: 5px;
     padding-right: 5px;
-
     line-height: 18px;
 }
 
@@ -76,6 +75,8 @@ svg {
     display: inline-block;
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica, Arial;
+
+    dominant-baseline: auto;
 }
 
 div.tooltip {

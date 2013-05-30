@@ -31,10 +31,10 @@ st.timeline = function() {
             var svg = d3.select(this)
                         .selectAll("svg")
                         .data([data])
-                        .attr("width", containerWidth)
-                        .attr("height", containerHeight)
                         .enter()
-                        .append("svg");
+                        .append("svg")
+                        .attr("width", containerWidth)
+                        .attr("height", containerHeight);
 
             var width = containerWidth - margin.left - margin.right;
             var height = containerHeight - margin.top - margin.bottom;
@@ -77,7 +77,7 @@ st.timeline = function() {
             // the scale extents
             y_scale
                 .domain(d3.range(lanes.length))
-                .rangeRoundBands([height, 0], v_buffer);
+                .rangeRoundBands([height, 0], v_buffer, 0);
 
             var zoom = d3.behavior.zoom().x(x_scale).scaleExtent([1, 1000]).on("zoom", zoom)
                 ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b')).ticks(10, 1).tickSize(9, 6, 0).tickSubdivide(9)
@@ -127,7 +127,7 @@ st.timeline = function() {
             nodeEnter
                 .append('text')
                 .attr("x", function(d) { return x_pos(d.startdate) })
-                .attr("y", function(d) { return y_scale(d.lane) })
+                .attr("y", function(d) { return y_scale(d.lane) + y_scale.rangeBand() })
                 .classed('event-text', true)
                 .text(function(d) { return d.title });
 
