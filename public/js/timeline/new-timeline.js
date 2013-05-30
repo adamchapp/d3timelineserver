@@ -71,30 +71,27 @@ d3.custom.timeline = function module() {
                .transition()
                .attr({width: containerWidth, height: containerHeight});
 
-            svg.select('.container-group')
-               .attr({transform: 'translate(' + margin.left + ',' + margin.top + ')',
-                      width: width,
-                      height: height});
-
             //y-scale
             var y_scale = d3.scale.ordinal()
                                   .domain(d3.range(lanes.length))
                                   .rangeRoundBands([height, 0], gap);
 
-            //axes
-            //TODO: Put in grid and sub axis
-            var x_axis = d3.svg.axis()
-                .scale(x_scale)
-                .orient("bottom")
-                .tickFormat(d3.time.format('%b'))
-                .ticks(10, 1)
-                .tickSize(9, 6, 0)
-                .tickSubdivide(9);
+            var zoom = d3.behavior.zoom().x(x_scale).scaleExtent([1, 1000]).on("zoom", zoom)
+                ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b')).ticks(10, 1).tickSize(9, 6, 0).tickSubdivide(9)
+                ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'))
+                ,   grid_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat("").tickSize(-height, 0, 0);
+
+            svg.select('.container-group')
+                .attr({transform: 'translate(' + margin.left + ',' + margin.top + ')',
+                    width: width,
+                    height: height})
 
             svg.select('.month.axis')
                 .transition()
                 .attr({transform: 'translate(0,' + height + ')'})
                 .call(x_axis);
+
+            svg.call(zoom);
 
             var bars = svg.select('.chart-group')
                 .selectAll('.bar')
@@ -123,6 +120,20 @@ d3.custom.timeline = function module() {
 
             //exit selection
             bars.exit().remove();
+
+            function zoom(e) {
+
+                svg.select(".month").call(x_axis);
+                svg.select(".year").call(sub_axis);
+                svg.select(".grid").call(grid_axis);
+
+                bars
+                    .attr("x", function(d) { return ruler.x_pos(d.startdate); })
+                    .attr("width", function(d) { return d.end_pos - d.start_pos })
+
+                nodes.select(".event-text")
+                    .attr("x", function(d) { return x_pos(d.startdate); })
+            }
         })
     }
 

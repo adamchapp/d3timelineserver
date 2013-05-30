@@ -44,7 +44,7 @@
       <file leaf-file-name="timeline.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="56" selection-start="6294" selection-end="6294" vertical-scroll-proportion="0.0">
+            <state line="138" column="0" selection-start="5671" selection-end="6190" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,7 +62,7 @@
       <file leaf-file-name="new-timeline.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/timeline/new-timeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="72" selection-start="4238" selection-end="4238" vertical-scroll-proportion="0.45297503">
+            <state line="127" column="64" selection-start="4619" selection-end="4619" vertical-scroll-proportion="0.4980315">
               <folding>
                 <element signature="e#0#47#0" expanded="false" />
               </folding>
@@ -130,8 +130,8 @@
         <option value="cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/measure.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/ruler.js" />
-        <option value="$PROJECT_DIR$/public/js/timeline/new-timeline.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/js/timeline/new-timeline.js" />
       </list>
     </option>
   </component>
@@ -383,7 +383,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24042553" sideWeight="0.61920905" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38079095" sideWeight="0.89432627" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38079095" sideWeight="0.89432627" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38079095" sideWeight="0.10070922" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -448,13 +448,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/js/timeline/timeline.js</url>
-          <line>86</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="33" />
     </breakpoint-manager>
   </component>
@@ -545,14 +538,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="56" selection-start="6294" selection-end="6294" vertical-scroll-proportion="0.0">
+        <state line="138" column="0" selection-start="5671" selection-end="6190" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/timeline/new-timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="72" selection-start="4238" selection-end="4238" vertical-scroll-proportion="0.45297503">
+        <state line="127" column="64" selection-start="4619" selection-end="4619" vertical-scroll-proportion="0.4980315">
           <folding>
             <element signature="e#0#47#0" expanded="false" />
           </folding>
