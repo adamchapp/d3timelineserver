@@ -31,9 +31,6 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectResources">
-    <default-html-doctype>$APPLICATION_HOME_DIR$/lib/webide.jar!/resources/html5-schema/html5.rnc</default-html-doctype>
-  </component>
   <component name="ProjectRootManager" version="2" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
     <option name="USER" value="" />

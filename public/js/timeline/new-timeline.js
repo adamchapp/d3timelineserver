@@ -175,7 +175,7 @@ d3.custom.timeline = function module() {
                 .transition().style({opacity: 1})
                 .attr({
                     x: function(d) { return ruler.x_pos(d.startdate) },
-                    y: function(d) { return y_scale(d.lane) },
+                    y: function(d) { return y_scale(d.lane) + (bar_height/2) },
                     dy: '1.2em',
                     dx: "1em",
                     width: function(d) { return d.end_pos - d.start_pos; },
@@ -186,7 +186,7 @@ d3.custom.timeline = function module() {
             //UPDATE SELECTION
             //----------------
 
-            bars.selectAll('.bar').transition()
+            bars.selectAll('.event').transition()
                 .attr({
                     x: function(d) { return ruler.x_pos(d.startdate) },
                     y: function(d) { return y_scale(d.lane) },
@@ -194,10 +194,28 @@ d3.custom.timeline = function module() {
                     height: function(d) { return bar_height - gap } //y_scale.rangeBand() }
                 });
 
+            bars.selectAll('.icon').transition()
+                .attr({
+                    x: function(d) { return ruler.x_pos(d.startdate) },
+                    y: function(d) { return y_scale(d.lane) + ((bar_height/2)-gap) },
+                    width: function(d) { return 5; },
+                    height: function(d) { return 5 }  //y_scale.rangeBand() }
+                });
+
+            bars.selectAll('.label').transition()
+                .attr({
+                    x: function(d) { return ruler.x_pos(d.startdate) },
+                    y: function(d) { return y_scale(d.lane) },
+                    dy: '1.2em',
+                    dx: "1em",
+                    width: function(d) { return d.end_pos - d.start_pos; },
+                    height: function(d) { return bar_height }, //y_scale.rangeBand() }
+                    "pointer-events": "none"
+                });
+
             //EXIT SELECTION
             //----------------
             bars.exit().remove();
-//            bars.select(".bar").exit().remove();
 
             svg.call(zoom);
 
