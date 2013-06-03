@@ -8,8 +8,6 @@ is a timeline component based on the D3 library (http://d3js.org)
 
 # To do #
 
-- Grid lines
-- Event highlighting (on click and on selection)
 - Go to event (needs to adjust domain and zoom level)
 - Text based filtering
 - API (goToEvent, refresh, resize, load, getEvent, filter)
