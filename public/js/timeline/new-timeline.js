@@ -14,7 +14,7 @@ d3.custom.timeline = function module() {
         containerWidth = 1200,
         containerHeight = 600,
         date_format = d3.time.format("%Y-%m-%d %X"),
-        gap = .1,
+        gap = 5,
 
         clickHandler = function(d) {},
         mouseOverHandler = function(d) {},
@@ -27,6 +27,9 @@ d3.custom.timeline = function module() {
     function exports(_selection) {
         _selection.each(function(data) {
 
+            var width = containerWidth - margin.left - margin.right,
+                height = containerHeight - margin.top - margin.bottom;
+
             //create container and position
             if ( !svg ) {
 
@@ -34,16 +37,36 @@ d3.custom.timeline = function module() {
                     .append('svg')
                     .classed('chart', true);
 
+                var gradient = svg.append("svg:defs")
+                    .append("svg:linearGradient")
+                    .attr("id", "gradient")
+                    .attr("x1", "0%")
+                    .attr("y1", "0%")
+                    .attr("x2", "100%")
+                    .attr("y2", "100%")
+                    .attr("spreadMethod", "pad");
+
+                gradient.append("svg:stop")
+                    .attr("offset", "0%")
+                    .attr("stop-color", "#FFF")
+                    .attr("stop-opacity", 1);
+
+                gradient.append("svg:stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", "#666")
+                    .attr("stop-opacity", 1);
+
+                svg.append("svg:rect")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .style("fill", "url(#gradient)");
+
                 var container = svg.append('g').classed('container-group', true);
-                container.append('g').classed('chart-group', true);
                 container.append("g").classed('grid', true);
                 container.append('g').classed('month axis', true);
                 container.append('g').classed('year axis', true);
-
+                container.append('g').classed('chart-group', true);
             }
-
-            var width = containerWidth - margin.left - margin.right,
-                height = containerHeight - margin.top - margin.bottom;
 
             var x_scale = d3.time.scale()
                                  .domain(d3.extent(data, function(d) { return date_format.parse(d.startdate)}))
@@ -71,55 +94,116 @@ d3.custom.timeline = function module() {
                .transition()
                .attr({width: containerWidth, height: containerHeight});
 
+            console.log('height is ' + height);
+
+            var bar_height = 25;
+            var totalBarHeight = (bar_height + gap) * lanes.length;
+            var allowedLanes = height/bar_height;
+
+            console.log('no of bars that will fit on screen : ' + (height/bar_height) );
+            console.log('total bar height is ' + totalBarHeight);
+
             //y-scale
-            var y_scale = d3.scale.ordinal()
-                                  .domain(d3.range(lanes.length))
-                                  .rangeRoundBands([height, 0], gap);
+            var y_scale = d3.scale.linear()
+                                  .domain([0, allowedLanes])
+                                  .range([height-bar_height, 0]);
 
             var zoom = d3.behavior.zoom().x(x_scale).scaleExtent([1, 1000]).on("zoom", zoom)
-                ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b')).ticks(10, 1).tickSize(9, 6, 0).tickSubdivide(9)
-                ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'))
-                ,   grid_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat("").tickSize(-height, 0, 0);
-
-            svg.select('.container-group')
-                .attr({transform: 'translate(' + margin.left + ',' + margin.top + ')',
-                    width: width,
-                    height: height})
+            ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b')).ticks(10, 1).tickSize(9, 6, 0).tickSubdivide(9)
+            ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'))
+            ,   grid_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat("").tickSize(-height, 0, 0);
 
             svg.select('.month.axis')
                 .transition()
                 .attr({transform: 'translate(0,' + height + ')'})
                 .call(x_axis);
 
-            svg.call(zoom);
+            //draw the grid lines
+            svg.select(".grid")
+                .attr("transform", "translate(0," + height + ")")
+                .call(grid_axis);
+
+            svg.select(".year")
+                .attr("transform", "translate(0," + (height + 20) + ")")
+                .call(sub_axis);
+
+            svg.select('.container-group')
+                .attr({
+                    transform: 'translate(' + margin.left + ',' + margin.top + ')',
+                    width: width,
+                    height: height
+                })
 
             var bars = svg.select('.chart-group')
                 .selectAll('.bar')
-                .data(data);
+                .data(data)
 
-            //enter selection
-            bars.enter().append('rect')
-                .classed('bar', true)
-                .on('mouseover', dispatch.customHover)
+            var barEnter = bars.enter().append('g').classed('bar', true);
+
+            //ENTER SELECTION
+            //---------------
+
+            //event
+            barEnter.append('rect')
+                .classed('event', true)
+                .on("mouseover", function(d) {
+                    d3.select(this).classed("active", true)
+                })
+                .on("mouseout", function(d) {
+                    d3.select(this).classed("active", false)
+                })
                 .transition().style({opacity: 1})
                 .attr({
                    x: function(d) { return ruler.x_pos(d.startdate) },
                    y: function(d) { return y_scale(d.lane) },
                    width: function(d) { return d.end_pos - d.start_pos; },
-                   height: function(d) { return y_scale.rangeBand() }
+                   height: function(d) { return bar_height - gap }  //y_scale.rangeBand() }
                 })
 
-            //update selection
-            bars.transition()
+            //icon
+            barEnter.append('rect')
+                .classed('icon', true)
+                .transition().style({opacity : 1})
+                .attr({
+                    dx: "1.2em",
+                    x: function(d) { return ruler.x_pos(d.startdate) },
+                    y: function(d) { return y_scale(d.lane) + ((bar_height/2)-gap) },
+                    width: function(d) { return 5; },
+                    height: function(d) { return 5 }  //y_scale.rangeBand() }
+                })
+
+            //label
+            barEnter.append('text')
+                .classed('label', true)
+                .text(function(d) { return d.title })
+                .transition().style({opacity: 1})
+                .attr({
+                    x: function(d) { return ruler.x_pos(d.startdate) },
+                    y: function(d) { return y_scale(d.lane) },
+                    dy: '1.2em',
+                    dx: "1em",
+                    width: function(d) { return d.end_pos - d.start_pos; },
+                    height: function(d) { return bar_height }, //y_scale.rangeBand() }
+                    "pointer-events": "none"
+                })
+
+            //UPDATE SELECTION
+            //----------------
+
+            bars.selectAll('.bar').transition()
                 .attr({
                     x: function(d) { return ruler.x_pos(d.startdate) },
                     y: function(d) { return y_scale(d.lane) },
                     width: function(d) { return d.end_pos - d.start_pos; },
-                    height: function(d) { return y_scale.rangeBand() }
+                    height: function(d) { return bar_height - gap } //y_scale.rangeBand() }
                 });
 
-            //exit selection
+            //EXIT SELECTION
+            //----------------
             bars.exit().remove();
+//            bars.select(".bar").exit().remove();
+
+            svg.call(zoom);
 
             function zoom(e) {
 
@@ -127,17 +211,20 @@ d3.custom.timeline = function module() {
                 svg.select(".year").call(sub_axis);
                 svg.select(".grid").call(grid_axis);
 
-                bars
+                bars.selectAll('.label')
                     .attr("x", function(d) { return ruler.x_pos(d.startdate); })
-                    .attr("width", function(d) { return d.end_pos - d.start_pos })
 
-                nodes.select(".event-text")
-                    .attr("x", function(d) { return x_pos(d.startdate); })
+                bars.selectAll('.event')
+                    .attr("x", function(d) { return ruler.x_pos(d.startdate); })
+
+                bars.selectAll('.icon')
+                    .attr("x", function(d) { return ruler.x_pos(d.startdate); })
+
             }
         })
     }
 
-    exports.width = function(_x) {
+    exports.width = function(_x ) {
         if (!arguments.length) return containerWidth;
         containerWidth = parseInt(_x);
         return this;

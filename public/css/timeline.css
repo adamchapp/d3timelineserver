@@ -46,9 +46,9 @@ svg {
 /* GRID LINES */
 
 .grid .tick {
-    stroke: #e9e9e9;
-
-    opacity: 0.7;
+    stroke: #b8b8b8;
+    shape-rendering: crispEdges;
+    opacity: 0.3;
 }
 .grid path {
     stroke-width: 0;
@@ -62,8 +62,7 @@ svg {
 }
 
 .event {
-    color: #FFFFFF;
-    fill: #38b7ff;
+    fill: #ffa64f;
     padding-top: 4px;
     padding-bottom: 5px;
     padding-left: 5px;
@@ -71,11 +70,19 @@ svg {
     line-height: 18px;
 }
 
-.event-text {
+.active {
+    fill: #42ff49;
+}
+
+.icon {
+    fill : #FF0000;
+}
+
+.label {
     display: inline-block;
     font-size: 12px;
     font-family: "Helvetica Neue", Helvetica, Arial;
-
+    fill: #FFFFFF;
     dominant-baseline: auto;
 }
 
