@@ -37,28 +37,24 @@ d3.custom.timeline = function module() {
                     .append('svg')
                     .classed('chart', true);
 
-                var gradient = svg.append("svg:defs")
-                    .append("svg:linearGradient")
+                var gradient = svg.append("svg:defs").append("svg:linearGradient")
                     .attr("id", "gradient")
-                    .attr("x1", "0%")
-                    .attr("y1", "0%")
-                    .attr("x2", "100%")
-                    .attr("y2", "100%")
+                    .attr("x1", "0%").attr("y1", "0%")
+                    .attr("x2", "100%").attr("y2", "100%")
                     .attr("spreadMethod", "pad");
 
-                gradient.append("svg:stop")
-                    .attr("offset", "0%")
-                    .attr("stop-color", "#FFF")
-                    .attr("stop-opacity", 1);
-
-                gradient.append("svg:stop")
-                    .attr("offset", "100%")
-                    .attr("stop-color", "#666")
-                    .attr("stop-opacity", 1);
+                gradient.append("svg:stop").attr("offset", "0%").attr("stop-color", "#FFF").attr("stop-opacity", 1);
+                gradient.append("svg:stop").attr("offset", "100%").attr("stop-color", "#666").attr("stop-opacity", 1);
 
                 svg.append("svg:rect")
-                    .attr("width", width)
+                    .attr("width", containerWidth)
                     .attr("height", height)
+                    .style("fill", "url(#gradient)");
+
+                svg.append("svg:rect")
+                    .attr("width", containerWidth)
+                    .attr("height", containerHeight)
+                    .attr("transform", "translate(0," + height + ")")
                     .style("fill", "url(#gradient)");
 
                 var container = svg.append('g').classed('container-group', true);
