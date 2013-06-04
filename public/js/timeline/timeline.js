@@ -12,6 +12,7 @@ d3.custom.timeline = function module() {
         containerHeight = 600,
         date_format = d3.time.format("%Y-%m-%d %X"),
         gap = 5,
+        bar_height = 25,
 
         clickHandler = function(d) {},
         mouseOverHandler = function(d) {},
@@ -23,6 +24,8 @@ d3.custom.timeline = function module() {
 
     function exports(_selection) {
         _selection.each(function(data) {
+
+            console.log('bar height is ' + bar_height);
 
             var width = containerWidth - margin.left - margin.right,
                 height = containerHeight - margin.top - margin.bottom;
@@ -107,7 +110,6 @@ d3.custom.timeline = function module() {
 
             console.log('height is ' + height);
 
-            var bar_height = 25;
             var totalBarHeight = (bar_height + gap) * lanes.length;
             var allowedLanes = height/bar_height;
 
@@ -120,6 +122,9 @@ d3.custom.timeline = function module() {
             ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b')).ticks(10, 1).tickSize(9, 6, 0).tickSubdivide(9)
             ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'))
             ,   grid_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat("").tickSize(-height, 0, 0);
+
+            //AXES
+            //----------
 
             svg.select('.month.axis')
                 .transition()
@@ -146,10 +151,10 @@ d3.custom.timeline = function module() {
                 .selectAll('.bar')
                 .data(data)
 
-            var barEnter = bars.enter().append('g').classed('bar', true);
-
-            //ENTER SELECTION
+            //BARS ENTER SELECTION
             //---------------
+
+            var barEnter = bars.enter().append('g').classed('bar', true);
 
             //event
             barEnter.append('rect')
@@ -209,7 +214,7 @@ d3.custom.timeline = function module() {
 //                    "pointer-events": "none"
 //                })
 
-            //UPDATE SELECTION
+            //BARS UPDATE SELECTION
             //----------------
 
             bars.selectAll('.event').transition()
@@ -239,7 +244,7 @@ d3.custom.timeline = function module() {
                     "pointer-events": "none"
                 });
 
-            //EXIT SELECTION
+            //BARS EXIT SELECTION
             //----------------
             bars.exit().remove();
 
@@ -271,6 +276,12 @@ d3.custom.timeline = function module() {
         })
     }
 
+    exports.row_height = function(_x) {
+        if (!arguments.length) return bar_height;
+        bar_height = parseFloat(_x);
+        return this;
+    }
+
     exports.width = function(_x ) {
         if (!arguments.length) return containerWidth;
         containerWidth = parseInt(_x);
@@ -283,7 +294,7 @@ d3.custom.timeline = function module() {
     };
     exports.gap = function(_x) {
         if (!arguments.length) return v_buffer;
-        v_buffer = _x;
+        v_buffer = parseFloat(_x);
         return this;
     };
     exports.click = function(_x) {

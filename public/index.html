@@ -85,12 +85,16 @@
 
         d3.select("#button").on("click", function(e) {
             toggle = !toggle;
-            var eventSelection = (toggle) ? events.slice(0, 60) : events;
+           // var eventSelection = (toggle) ? events.slice(0, 60) : events;
 
-            console.log('using ' + eventSelection.length + ' items.');
+//            console.log('using ' + eventSelection.length + ' items.');
+
+            var height = (toggle) ? 25 : 45;
+
+            timeline.row_height(height);
 
             d3.select("#graph")
-              .datum(eventSelection)
+              .datum(events)
               .call(timeline);
         })
 
