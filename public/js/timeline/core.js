@@ -6,8 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 
-var st = window.st || {};
+d3.custom = {};
+d3.layouts = {};
 
-st.version = "0.0.1a";
-
-window.st = st;

@@ -26,9 +26,9 @@
 
 <h4>Event size</h4>
 
-<input type="radio" id="radio1"/>Fixed width<br>
-<input type="radio" id="radio2"/>Actual size<br>
-<input type="radio" id="radio3"/>Fit to text
+<input type="radio" name="width" id="radio1"/>Fixed width<br>
+<input type="radio" name="width" id="radio2"/>Actual size<br>
+<input type="radio" name="width" id="radio3"/>Fit to text
 
 <br>
 
@@ -40,8 +40,11 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js" charset="utf-8"></script>
 
 <script src="js/timeline/core.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/timeline/ruler.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/timeline/new-timeline.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/timeline/layouts/base/BaseLayout.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/timeline/layouts/ActualSize.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/timeline/layouts/FixedWidth.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/timeline/layouts/FitToText.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/timeline/timeline.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
 
@@ -95,6 +98,12 @@
             timeline.gap(this.value/10);
             d3.select("#graph").call(timeline);
         })
+
+        d3.select("input[name=\"width\"]").each(change);
+
+        function change(e) {
+            console.log('checked');
+        }
     }
 
 </script>
