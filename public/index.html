@@ -18,23 +18,20 @@
 
 <h1>Properties</h1>
 
-<h4>Row gap</h4>
+<!--<h4>Row gap</h4>-->
 
-<input type="range" id="slider" min="0" max="10"/>
-
-<br>
+<!--<input type="range" id="slider" min="0" max="10"/>-->
 
 <h4>Event size</h4>
 
-<input type="radio" name="width" id="radio1"/>Fixed width<br>
-<input type="radio" name="width" id="radio2"/>Actual size<br>
+<input type="radio" name="width" id="radio1"/>Fixed width
+<input type="radio" name="width" id="radio2"/>Actual size
 <input type="radio" name="width" id="radio3"/>Fit to text
-
-<br>
 
 <h4>Filters</h4>
 
-<button id="button">Show first 30 items</button>
+<input type="text" id="filterField" />
+<button id="button">Filter</button>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js" charset="utf-8"></script>
@@ -84,17 +81,17 @@
         var toggle = false;
 
         d3.select("#button").on("click", function(e) {
-            toggle = !toggle;
-           // var eventSelection = (toggle) ? events.slice(0, 60) : events;
 
-//            console.log('using ' + eventSelection.length + ' items.');
+            var field = d3.select("#filterField");
 
-            var height = (toggle) ? 25 : 45;
+            console.log(field.value);
 
-            timeline.row_height(height);
+            var eventSelection = events.filter(function(d) {
+                return d.title === field.value;
+            })
 
             d3.select("#graph")
-              .datum(events)
+              .datum(eventSelection)
               .call(timeline);
         })
 
