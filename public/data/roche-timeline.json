@@ -1,0 +1,52 @@
+{
+    "GetResult": [{
+        "events": [{
+            "enddate": "2012-05-22 12:00:00",
+            "icon": "turquoise2.png",
+            "id": "7e632a7c-1d68-4b19-ab1f-3c1dfac035df",
+            "startdate": "2012-05-18 12:00:00",
+            "title": "APA (San Francisco)"
+        }, {
+            "enddate": "2012-10-09 12:00:00",
+            "icon": "turquoise2.png",
+            "id": "22252e34-c0db-4e99-902d-761708e64505",
+            "startdate": "2012-10-05 12:00:00",
+            "title": "ECNP (Barcelona)"
+        }, {
+            "enddate": "2012-05-07 12:00:00",
+            "icon": "turquoise2.png",
+            "id": "4ec3a268-7b9a-433b-9417-b778a8999dc3",
+            "startdate": "2012-05-07 12:00:00",
+            "title": "Train-the-trainer"
+        }, {
+            "enddate": "2012-07-03 12:00:00",
+            "icon": "turquoise2.png",
+            "id": "2c2fe3ce-ad79-4d11-804d-98e71e670f59",
+            "startdate": "2012-07-03 12:00:00",
+            "title": "Lunch talk"
+        }, {
+            "enddate": "2012-09-07 12:00:00",
+            "icon": "brown.png",
+            "id": "60b6b1b0-ee0f-4f6e-93d7-4b69e6aea4fd",
+            "startdate": "2012-09-07 12:00:00",
+            "title": "Preceptorship"
+        }, {
+            "enddate": "2012-11-06 12:00:00",
+            "icon": "brown.png",
+            "id": "314d8268-210a-4971-bcb6-28d76b97b0a7",
+            "startdate": "2012-11-06 12:00:00",
+            "title": "LunchTalk"
+        }, {
+            "enddate": "2012-11-15 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2012-11-15 12:00:00",
+            "title": "Cariprazine"
+        }],
+        "focus_date": "2012-05-05 12:00:00",
+        "id": "js_history 78979",
+        "image_lane_height": 0,
+        "initial_zoom": "25",
+        "title": "Bitopertin activities planner"
+    }]
+}

@@ -4,16 +4,16 @@
     <list default="true" id="f0148603-d189-4d42-9cd1-a886f10459c4" name="Default" comment="" />
     <ignored path="d3timelineserver.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/new-timeline.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1370286375587" ignored="false" />
-    <file path="/timeline.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1369501801713" ignored="false" />
-    <file path="/timeline.css" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1369500548309" ignored="false" />
-    <file path="/index.html" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1370288371057" ignored="false" />
-    <file path="/index.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368734314454" ignored="false" />
-    <file path="/package.json" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368730787128" ignored="false" />
-    <file path="/app.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368734115402" ignored="false" />
-    <file path="/Dummy.txt" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368731636608" ignored="false" />
-    <file path="/user.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368732239087" ignored="false" />
     <file path="/SimpleTimeline.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1369765822995" ignored="false" />
+    <file path="/user.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368732239087" ignored="false" />
+    <file path="/Dummy.txt" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368731636608" ignored="false" />
+    <file path="/app.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368734115402" ignored="false" />
+    <file path="/package.json" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368730787128" ignored="false" />
+    <file path="/index.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1368734314454" ignored="false" />
+    <file path="/index.html" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1370288371057" ignored="false" />
+    <file path="/timeline.css" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1369500548309" ignored="false" />
+    <file path="/timeline.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1369501801713" ignored="false" />
+    <file path="/new-timeline.js" changelist="f0148603-d189-4d42-9cd1-a886f10459c4" time="1370286375587" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,23 +33,85 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="0" selection-start="2718" selection-end="2718" vertical-scroll-proportion="0.33266532">
+            <state line="62" column="44" selection-start="2003" selection-end="2003" vertical-scroll-proportion="-17.041666">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="timeline.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="timeline.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/timeline.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="42" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="timeline.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="53" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
+            <state line="45" column="60" selection-start="1287" selection-end="1287" vertical-scroll-proportion="0.7887324">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FitToText.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/timeline/layouts/FitToText.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="80" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseLayout.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/timeline/layouts/base/BaseLayout.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="55" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#47#0" expanded="false" />
-                <element signature="e#7469#7499#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="timeline.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/data/timeline.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="14" selection-start="2321" selection-end="2321" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="roche-timeline.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/data/roche-timeline.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="1" selection-start="2386" selection-end="2386" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="57" selection-start="647" selection-end="647" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="24" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,28 +126,28 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="localhost:8888/index.html" />
-        <option value="$PROJECT_DIR$/public/js/timeline/Timeline.js" />
-        <option value="$PROJECT_DIR$/public/js/timeline/SimpleTimeline.js" />
-        <option value="$PROJECT_DIR$/public/js/timeline/old-timeline.js" />
         <option value="cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/measure.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/ruler.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/layouts/ActualSize.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/layouts/FixedWidth.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/layouts/BaseLayout.js" />
-        <option value="$PROJECT_DIR$/public/css/timeline.css" />
         <option value="$PROJECT_DIR$/public/js/timeline/layouts/FitToText.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/new-timeline.js" />
         <option value="$PROJECT_DIR$/public/js/timeline/core.js" />
-        <option value="$PROJECT_DIR$/public/js/timeline/timeline.js" />
+        <option value="$PROJECT_DIR$/public/js/timeline/layouts/base/BaseLayout.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/public/data/roche-timeline.json" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/css/timeline.css" />
+        <option value="$PROJECT_DIR$/public/js/timeline/timeline.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="27" />
-    <option name="y" value="29" />
+    <option name="y" value="30" />
     <option name="width" value="1467" />
     <option name="height" value="1006" />
   </component>
@@ -131,6 +193,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="d3timelineserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3timelineserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3timelineserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -240,6 +316,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pngs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3timelineserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3timelineserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3timelineserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3timelineserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3timelineserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d3timelineserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -251,13 +385,13 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="web.server" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../d3 force layout" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -272,12 +406,13 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/data" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/public/js/timeline" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/img/pngs" />
       <recent name="$PROJECT_DIR$/public/js/timeline/layouts/base" />
       <recent name="$PROJECT_DIR$/public/js/timeline/layouts" />
       <recent name="$PROJECT_DIR$/public/data" />
@@ -332,16 +467,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="27" y="29" width="1467" height="1006" extended-state="0" />
-    <editor active="false" />
+    <frame x="27" y="30" width="1467" height="1006" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19044322" sideWeight="0.6214689" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37853107" sideWeight="0.91135734" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37853107" sideWeight="0.933518" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37853107" sideWeight="0.08379501" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37853107" sideWeight="0.06163435" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -404,32 +539,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/index.html</url>
-          <line>86</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="44" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="84" selection-start="689" selection-end="724" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="http://localhost:8888/js/timeline/timeline.js">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="http://localhost:8888/index.html">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavascriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1028" column="35" selection-start="17090" selection-end="17090" vertical-scroll-proportion="-0.7360308" />
@@ -442,16 +555,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/timeline/layouts/ActualSize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/timeline/layouts/FitToText.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="80" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="0" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/timeline/layouts/FixedWidth.js">
@@ -463,40 +567,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/timeline/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="28" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="11" column="28" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/timeline.css">
+    <entry file="file://$PROJECT_DIR$/public/img/pngs/subcategories/conferences_all.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/pngs/icons_timeline/blue.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/timeline/layouts/FitToText.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="88" selection-start="988" selection-end="988" vertical-scroll-proportion="0.43021032">
+        <state line="18" column="80" selection-start="441" selection-end="441" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/timeline/layouts/base/BaseLayout.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="50" selection-start="722" selection-end="722" vertical-scroll-proportion="0.7743786">
+        <state line="21" column="55" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#47#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
+    <entry file="file://$PROJECT_DIR$/public/data/timeline.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="53" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#47#0" expanded="false" />
-            <element signature="e#7469#7499#0" expanded="false" />
-          </folding>
+        <state line="28" column="14" selection-start="2321" selection-end="2321" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/data/roche-timeline.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="1" selection-start="2386" selection-end="2386" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="24" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="57" selection-start="647" selection-end="647" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="0" selection-start="2718" selection-end="2718" vertical-scroll-proportion="0.33266532">
+        <state line="62" column="44" selection-start="2003" selection-end="2003" vertical-scroll-proportion="-17.041666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/timeline.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="42" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/timeline/timeline.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="60" selection-start="1287" selection-end="1287" vertical-scroll-proportion="0.7887324">
           <folding />
         </state>
       </provider>

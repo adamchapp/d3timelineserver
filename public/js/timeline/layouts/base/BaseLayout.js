@@ -6,9 +6,10 @@
 
 d3.layouts.baseLayout = function(attributes) {
 
+    const h_buffer = 25;
+
     var date_format = attributes.date_format;
     var x_scale = attributes.x_scale;
-    var h_buffer = attributes.h_buffer || 15;
 
     function x_pos(date) {
         return x_scale(date_format.parse(date));
@@ -39,9 +40,9 @@ d3.layouts.baseLayout = function(attributes) {
         var text = svg.append("text")
                 .attr('class', aclass)
                 .attr("x", 0)
-            .attr("y", 0)
-            .style("opacity", 0)
-            .text(string);
+                .attr("y", 0)
+                .style("opacity", 0)
+                .text(string);
 
         var length = text.node().getComputedTextLength();
 

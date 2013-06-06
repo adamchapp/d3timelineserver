@@ -9,7 +9,7 @@ exports.index = function(req, res) {
 //TODO
 exports.timeline = function(req, res) {
 
-    fs.readFile( 'public/data/timeline.json', function (err, data) {
+    fs.readFile( 'public/data/roche-timeline.json', function (err, data) {
         if (err) { throw err; }
         res.json(JSON.parse(data));
     });

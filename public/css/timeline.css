@@ -1,6 +1,7 @@
 
 /* BACKGROUND */
 
+
 /* outer container */
 svg {
     border-width: 1px;
@@ -8,9 +9,25 @@ svg {
     border-color: #c4c3c5;
 }
 
-/* inner container */
+/* inner container - uncomment the other line to use a gradient fill instead */
 .background {
+    background: url('../img/pngs/ticks.png') repeat;
+}
 
+.axisbackground {
+    fill: url(#background-tile) #ff0000;
+}
+
+/* background gradients -  to use an image instead set the stop-opacity to  */
+
+.gradienttop {
+    stop-color: #FFF;
+    stop-opacity: 1;
+}
+
+.gradientbottom {
+    stop-color: #cd395f;
+    stop-opacity: 1;
 }
 
 /* AXES */
@@ -63,10 +80,7 @@ svg {
 
 .event {
     fill: #4c1770;
-    padding-top: 4px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+    stroke-color: #FF0000;
     line-height: 18px;
 }
 
