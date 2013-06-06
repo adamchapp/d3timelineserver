@@ -14,7 +14,7 @@ d3.custom.timeline = function module() {
         containerHeight = 600,
         date_format = d3.time.format("%Y-%m-%d %X"),
         gap = 15,
-        bar_height = 30,
+        bar_height = 35,
 
         clickHandler = function(d) {},
         mouseOverHandler = function(d) {},
@@ -57,7 +57,7 @@ d3.custom.timeline = function module() {
                                  .domain(d3.extent(data, function(d) { return date_format.parse(d.startdate)}))
                                  .range([0, width]);
 
-            var layout = d3.layouts.fixedWidth({
+            var layout = d3.layouts.fitToText({
                 x_scale : x_scale,
                 date_format : date_format,
                 h_buffer : gap
@@ -79,8 +79,6 @@ d3.custom.timeline = function module() {
                .transition()
                .attr({width: containerWidth, height: containerHeight});
 
-            console.log('height is ' + height);
-
             var totalBarHeight = (bar_height + gap) * lanes.length;
             var allowedLanes = height/(bar_height + gap);
 
@@ -89,7 +87,7 @@ d3.custom.timeline = function module() {
                                   .domain([0, allowedLanes])
                                   .range([height-(bar_height+gap), 0]);
 
-            var zoom = d3.behavior.zoom().x(x_scale).scaleExtent([.1, 1000]).on("zoom", zoom)
+            var zoom = d3.behavior.zoom().x(x_scale).scaleExtent([1, 1000]).on("zoom", zoom)
             ,   x_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat(d3.time.format('%b')).ticks(10, 1).tickSize(9, 6, 0).tickSubdivide(9)
             ,   sub_axis = d3.svg.axis().scale(x_scale).orient("bottom").ticks(2).tickFormat(d3.time.format('%Y'))
             ,   grid_axis = d3.svg.axis().scale(x_scale).orient("bottom").tickFormat("").tickSize(-height, 0, 0);
@@ -140,7 +138,11 @@ d3.custom.timeline = function module() {
                 .attr({
                    x: function(d) { return layout.x_pos(d.startdate) },
                    y: function(d) { return y_scale(d.lane) },
-                   width: function(d) { return d.end_pos - d.start_pos; },
+                   width: function(d) {
+                       var e_width = layout.x_end_pos(d) - layout.x_pos(d.startdate)
+                       console.log(d.title + ':' + e_width)
+                       return e_width;
+                   },
                    height: function(d) { return bar_height }  //y_scale.rangeBand() }
                 })
 
@@ -150,25 +152,24 @@ d3.custom.timeline = function module() {
                 .transition().style({opacity : 1})
                 .attr({
                     "xlink:href": "img/pngs/icons_timeline/blue.png",
-                    x: function(d) { return layout.x_pos(d.startdate) - icon_buffer },
+                    x: function(d) { return layout.x_pos(d.startdate) - (icon_buffer/2) },
                     y: function(d) { return y_scale(d.lane) },
                     width: function(d) { return 19; },
                     height: function(d) { return 58 }  //y_scale.rangeBand() }
                 })
 
             //foreign object label
-            barEnter.append('foreignObject')
+            barEnter.append('text')
                 .classed('label', true)
                 .attr({
-                    x: function(d) { return layout.x_pos(d.startdate) },
+                    x: function(d) { return layout.x_pos(d.startdate) + (icon_buffer/2) },
                     y: function(d) { return y_scale(d.lane) },
-                    width: function(d) { return d.end_pos - d.start_pos; },
+                    width: function(d) { return layout.x_end_pos(d) - layout.x_pos(d.startdate) },
                     height: function(d) { return bar_height }, //y_scale.rangeBand() }
                     "pointer-events": "none"
                 })
-                .append('xhtml:div')
                 .attr("pointer-events", "none")
-                .html(function(d) { return d.title })
+                .text(function(d) { return d.title })
 
 //            //svg text label
 //            barEnter.append('text')
@@ -190,16 +191,16 @@ d3.custom.timeline = function module() {
 
             bars.selectAll('.event').transition()
                 .attr({
-                    x: function(d) { return layout.x_pos(d.startdate) },
+                    x: function(d) { return layout.x_pos(d.startdate) + (icon_buffer/2) },
                     y: function(d) { return y_scale(d.lane) },
-                    width: function(d) { return d.end_pos - d.start_pos; },
+                    width: function(d) { return layout.x_end_pos(d) - layout.x_pos(d.startdate); },
                     height: function(d) { return bar_height } //y_scale.rangeBand() }
                 });
 
             bars.selectAll('.icon').transition()
                 .attr({
                     "xlink:href": "img/pngs/icons_timeline/blue.png",
-                    x: function(d) { return layout.x_pos(d.startdate) - icon_buffer  },
+                    x: function(d) { return layout.x_pos(d.startdate) - (icon_buffer/2) },
                     y: function(d) { return y_scale(d.lane) },
                     width: function(d) { return icon_width; },
                     height: function(d) { return icon_height }  //y_scale.rangeBand() }
@@ -207,11 +208,11 @@ d3.custom.timeline = function module() {
 
             bars.selectAll('.label').transition()
                 .attr({
-                    x: function(d) { return layout.x_pos(d.startdate) },
+                    x: function(d) { return layout.x_pos(d.startdate) + (icon_buffer/2) },
                     y: function(d) { return y_scale(d.lane) },
                     dy: '1.2em',
-                    dx: "1em",
-                    width: function(d) { return d.end_pos - d.start_pos; },
+                    dx: ".2em",
+                    width: function(d) { return layout.x_end_pos(d) - layout.x_pos(d.startdate); },
                     height: function(d) { return bar_height }, //y_scale.rangeBand() }
                     "pointer-events": "none"
                 });
@@ -230,19 +231,19 @@ d3.custom.timeline = function module() {
 
                 bars.selectAll('.label')
                     .attr({
-                        x : function(d) { return layout.x_pos(d.startdate); },
+                        x : function(d) { return layout.x_pos(d.startdate) + (icon_buffer/2); },
                         width : function(d) { return layout.x_end_pos(d) - layout.x_pos(d.startdate) }
                     })
 
 
                 bars.selectAll('.event')
                     .attr({
-                        x: function(d) { return layout.x_pos(d.startdate); },
+                        x: function(d) { return layout.x_pos(d.startdate) + (icon_buffer/2); },
                         width : function(d) { return layout.x_end_pos(d) - layout.x_pos(d.startdate) }
                     })
 
                 bars.selectAll('.icon')
-                    .attr("x", function(d) { return layout.x_pos(d.startdate) - icon_buffer; })
+                    .attr("x", function(d) { return layout.x_pos(d.startdate) - (icon_buffer/2) })
 
             }
         })

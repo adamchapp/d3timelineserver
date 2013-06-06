@@ -15,32 +15,15 @@ d3.layouts.baseLayout = function(attributes) {
         return x_scale(date_format.parse(date));
     }
 
-    function y_pos(currentLane, event, lanes) {
-
-        var end_pos = lanes[currentLane];
-
-        if ( !end_pos ) {
-            lanes[currentLane] = event.end_pos;
-            return currentLane;
-        }
-
-        if ( ( end_pos + h_buffer ) > x_pos(event.startdate)) {
-            return y_pos(++currentLane, event, lanes);
-        }
-
-        lanes[currentLane] = event.end_pos;
-
-        return currentLane;
-    }
-
     function stringWidth(string, aclass) {
 
         var svg = d3.select("svg");
 
         var text = svg.append("text")
-                .attr('class', aclass)
+                .classed(aclass,true)
                 .attr("x", 0)
                 .attr("y", 0)
+                .style('font-size', 18)
                 .style("opacity", 0)
                 .text(string);
 
@@ -54,7 +37,6 @@ d3.layouts.baseLayout = function(attributes) {
 
     return {
         stringWidth : stringWidth,
-        x_pos : x_pos,
-        y_pos : y_pos
+        x_pos : x_pos
     }
 }

@@ -42,6 +42,102 @@
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
             "startdate": "2012-11-15 12:00:00",
             "title": "Cariprazine"
+        }, {
+            "enddate": "2013-01-15 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2013-01-15 12:00:00",
+            "title": "Regional Advisory Board (France)"
+        }, {
+            "enddate": "2013-03-15 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2013-03-15 12:00:00",
+            "title": "Regional Advisory Board (US)"
+        }, {
+            "enddate": "2013-05-15 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2013-05-15 12:00:00",
+            "title": "Regional Advisory Board (Germany)"
+        }, {
+            "enddate": "2014-10-10 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2014-10-10 12:00:00",
+            "title": "Regional Advisory Board (Canada)"
+        }, {
+            "enddate": "2014-12-08 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2014-12-08 12:00:00",
+            "title": "Regional Advisory Board (Brazil)"
+        }, {
+            "enddate": "2015-01-08 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2015-01-08 12:00:00",
+            "title": "Regional Advisory Board (China)"
+        }, {
+            "enddate": "2015-03-05 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2015-03-05 12:00:00",
+            "title": "Regional Advisory Board (Japan)"
+        }, {
+            "enddate": "2015-04-05 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2015-04-05 12:00:00",
+            "title": "Regional Advisory Board (UK)"
+        }, {
+            "enddate": "2016-01-05 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2016-01-05 12:00:00",
+            "title": "Regional Advisory Board (Spain)"
+        }, {
+            "enddate": "2015-12-08 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2015-12-08 12:00:00",
+            "title": "Regional Advisory Board (Italy)"
+        }, {
+            "enddate": "2013-05-16 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2013-05-16 12:00:00",
+            "title": "Neurobiology of Negative Symptoms in Schizophrenia"
+        }, {
+            "enddate": "2013-06-01 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2013-06-01 12:00:00",
+            "title": "Clinical Meaningfulness"
+        }, {
+            "enddate": "2013-10-01 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2013-10-01 12:00:00",
+            "title": "Sub-optimally controlled symptoms in schizophrenia"
+        }, {
+            "enddate": "2014-10-01 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2014-10-01 12:00:00",
+            "title": "Global Implementation Meeting (GIM)"
+        }, {
+            "enddate": "2015-10-01 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2015-10-01 12:00:00",
+            "title": "Global Implementation Meeting (GIM)"
+        }, {
+            "enddate": "2016-10-01 12:00:00",
+            "icon": "green2.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "startdate": "2015-10-01 12:00:00",
+            "title": "Global Implementation Meeting (GIM)"
         }],
         "focus_date": "2012-05-05 12:00:00",
         "id": "js_history 78979",

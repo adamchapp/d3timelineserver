@@ -1,39 +1,42 @@
 
-/* BACKGROUND */
+body {
+	font-family:Verdana,Arial,Geneva,Helvetica,sans-serif;
+}
 
+/* BACKGROUND */
 
 /* outer container */
 svg {
-    border-width: 1px;
+    border-width: 3px;
     border-style: solid;
-    border-color: #c4c3c5;
+    border-color: #007ac3;
+	border-top: 1px #007ac3 solid;
 }
 
 /* inner container - uncomment the other line to use a gradient fill instead */
 .background {
-    background: url('../img/pngs/ticks.png') repeat;
+/*    fill: url(#background-tile) #cccccc;*/
+    fill: url(#gradient) #CCC;
 }
 
 .axisbackground {
-    fill: url(#background-tile) #ff0000;
+    fill: url(#gradient) #C4D8EE;
 }
 
 /* background gradients -  to use an image instead set the stop-opacity to  */
-
 .gradienttop {
     stop-color: #FFF;
     stop-opacity: 1;
 }
 
 .gradientbottom {
-    stop-color: #cd395f;
+    stop-color:#CCC;
     stop-opacity: 1;
 }
 
 /* AXES */
 
 .axis {
-    font-family: "Helvetica Neue", Helvetica, Arial;
     font-size: 12px;
     color: #ffffff;
     height: 30px;
@@ -79,25 +82,22 @@ svg {
 }
 
 .event {
-    fill: #4c1770;
-    stroke-color: #FF0000;
-    line-height: 18px;
+    fill: #e5effa;
+	color:#007ac3;
 }
 
 .active {
-    fill: #2a23ff;
+    fill:white;
 }
 
 .icon {
-    fill : #f7ff98;
+    fill :#FFF;
 }
 
 .label {
-    display: inline-block;
-    font-size: 12px;
-    font-family: "Helvetica Neue", Helvetica, Arial;
-    fill: #FFFFFF;
-    color: #ffffff;
+    font-size: 16px;
+    fill: #767676;
+    color: #007ac3;
     dominant-baseline: auto;
 }
 
@@ -107,7 +107,7 @@ div.tooltip {
     width: 180px;
     height: 70px;
     padding: 2px;
-    font: 12px "Helvetica Neue";
+    font: 12px;
     color: #ffffff;
     background: grey;
     border: 0px;
