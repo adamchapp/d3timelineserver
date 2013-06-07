@@ -3,6 +3,7 @@
         "events": [{
             "enddate": "2012-05-22 12:00:00",
             "icon": "turquoise2.png",
+            "color" : "#FF0000",
             "id": "7e632a7c-1d68-4b19-ab1f-3c1dfac035df",
             "startdate": "2012-05-18 12:00:00",
             "title": "APA (San Francisco)"
@@ -10,132 +11,154 @@
             "enddate": "2012-10-09 12:00:00",
             "icon": "turquoise2.png",
             "id": "22252e34-c0db-4e99-902d-761708e64505",
+            "color" : "#FF0000",
             "startdate": "2012-10-05 12:00:00",
             "title": "ECNP (Barcelona)"
         }, {
             "enddate": "2012-05-07 12:00:00",
             "icon": "turquoise2.png",
             "id": "4ec3a268-7b9a-433b-9417-b778a8999dc3",
+            "color" : "#FF0000",
             "startdate": "2012-05-07 12:00:00",
             "title": "Train-the-trainer"
         }, {
             "enddate": "2012-07-03 12:00:00",
             "icon": "turquoise2.png",
             "id": "2c2fe3ce-ad79-4d11-804d-98e71e670f59",
+            "color" : "#FF0000",
             "startdate": "2012-07-03 12:00:00",
             "title": "Lunch talk"
         }, {
             "enddate": "2012-09-07 12:00:00",
             "icon": "brown.png",
             "id": "60b6b1b0-ee0f-4f6e-93d7-4b69e6aea4fd",
+            "color" : "#FF0000",
             "startdate": "2012-09-07 12:00:00",
             "title": "Preceptorship"
         }, {
             "enddate": "2012-11-06 12:00:00",
             "icon": "brown.png",
             "id": "314d8268-210a-4971-bcb6-28d76b97b0a7",
+            "color" : "#FF0000",
             "startdate": "2012-11-06 12:00:00",
             "title": "LunchTalk"
         }, {
             "enddate": "2012-11-15 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2012-11-15 12:00:00",
             "title": "Cariprazine"
         }, {
             "enddate": "2013-01-15 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2013-01-15 12:00:00",
             "title": "Regional Advisory Board (France)"
         }, {
             "enddate": "2013-03-15 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2013-03-15 12:00:00",
             "title": "Regional Advisory Board (US)"
         }, {
             "enddate": "2013-05-15 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2013-05-15 12:00:00",
             "title": "Regional Advisory Board (Germany)"
         }, {
             "enddate": "2014-10-10 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2014-10-10 12:00:00",
             "title": "Regional Advisory Board (Canada)"
         }, {
             "enddate": "2014-12-08 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2014-12-08 12:00:00",
             "title": "Regional Advisory Board (Brazil)"
         }, {
             "enddate": "2015-01-08 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2015-01-08 12:00:00",
             "title": "Regional Advisory Board (China)"
         }, {
             "enddate": "2015-03-05 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2015-03-05 12:00:00",
             "title": "Regional Advisory Board (Japan)"
         }, {
             "enddate": "2015-04-05 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2015-04-05 12:00:00",
             "title": "Regional Advisory Board (UK)"
         }, {
             "enddate": "2016-01-05 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2016-01-05 12:00:00",
             "title": "Regional Advisory Board (Spain)"
         }, {
             "enddate": "2015-12-08 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2015-12-08 12:00:00",
             "title": "Regional Advisory Board (Italy)"
         }, {
             "enddate": "2013-05-16 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2013-05-16 12:00:00",
             "title": "Neurobiology of Negative Symptoms in Schizophrenia"
         }, {
             "enddate": "2013-06-01 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2013-06-01 12:00:00",
             "title": "Clinical Meaningfulness"
         }, {
             "enddate": "2013-10-01 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2013-10-01 12:00:00",
             "title": "Sub-optimally controlled symptoms in schizophrenia"
         }, {
             "enddate": "2014-10-01 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2014-10-01 12:00:00",
             "title": "Global Implementation Meeting (GIM)"
         }, {
             "enddate": "2015-10-01 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2015-10-01 12:00:00",
             "title": "Global Implementation Meeting (GIM)"
         }, {
             "enddate": "2016-10-01 12:00:00",
             "icon": "green2.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#FF0000",
             "startdate": "2015-10-01 12:00:00",
             "title": "Global Implementation Meeting (GIM)"
         }],

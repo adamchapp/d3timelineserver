@@ -18,20 +18,26 @@
 
 <h1>Properties</h1>
 
-<!--<h4>Row gap</h4>-->
 
-<!--<input type="range" id="slider" min="0" max="10"/>-->
+<!--<h4>Event size</h4>-->
 
-<h4>Event size</h4>
-
-<input type="radio" name="width" id="radio1"/>Fixed width
-<input type="radio" name="width" id="radio2"/>Actual size
-<input type="radio" name="width" id="radio3"/>Fit to text
+<!--<input type="radio" name="width" id="radio1"/>Fixed width-->
+<!--<input type="radio" name="width" id="radio2"/>Actual size-->
+<!--<input type="radio" name="width" id="radio3"/>Fit to text-->
 
 <h4>Filters</h4>
 
 <input type="text" id="filterField" />
-<button id="button">Filter</button>
+<button id="button">Filter by text</button>
+<br>Enter a string to filter (or a list of comma separated strings)<br>  <br>
+
+<input type="text" id="colorField" />
+<button id="colorButton">Filter by colour</button>
+<br>Enter a hex value (e.g. #FF0000) to filter by color
+
+<h4>Row gap</h4>
+
+<input type="range" id="slider" min="10" max="50"/>
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js" charset="utf-8"></script>
@@ -41,6 +47,7 @@
 <script src="js/timeline/layouts/ActualSize.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/timeline/layouts/FixedWidth.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/timeline/layouts/FitToText.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/timeline/timeline-component.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/timeline/timeline.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
@@ -51,10 +58,6 @@
 
     d3.json(root_url + 'timeline/1234', callback_function);
 
-    var div = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
-
     function callback_function(data) {
 
         var events = data["GetResult"][0].events;
@@ -63,48 +66,25 @@
             return d.enddate && d.enddate >= d.startdate;
         })
 
-        var mouseOverHandler = function(d) {
-            div.transition().duration(200).style("opacity", .9);
-            div.html(d.title + "<br/>"  + d.startdate).style("left", (d3.event.pageX) + "px").style("top", (d3.event.pageY - 28) + "px");
-        }
-
-        var mouseOutHandler = function(d) {
-            div.transition().duration(500).style("opacity", 0);
-        }
-
-        var timeline = d3.custom.timeline();
-
-        var selection = d3.select("#graph")
-                          .datum(events)
-                          .call(timeline);
-
-        var toggle = false;
+        var timeline = sp.timeline('#graph', events);
 
         d3.select("#button").on("click", function(e) {
-
-            var field = d3.select("#filterField");
-
-            console.log(field.value);
-
-            var eventSelection = events.filter(function(d) {
-                return d.title === field.value;
-            })
-
-            d3.select("#graph")
-              .datum(eventSelection)
-              .call(timeline);
+            var field = $('#filterField').val();
+            timeline.filter(field);
         })
+
+        d3.select("#colorButton").on("click", function(e) {
+            var field = $('#colorField').val();
+            timeline.color_filter(field);
+        })
+
 
         d3.select('#slider').on("change", function(e) {
-            timeline.gap(this.value/10);
-            d3.select("#graph").call(timeline);
+
+            var value = $('#slider').val();
+
+            timeline.setRowHeight(value);
         })
-
-        d3.select("input[name=\"width\"]").each(change);
-
-        function change(e) {
-            console.log('checked');
-        }
     }
 
 </script>

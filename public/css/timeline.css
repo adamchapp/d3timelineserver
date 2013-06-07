@@ -78,16 +78,17 @@ svg {
 /* EVENTS */
 
 .short-event {
-    fill: #c9cdd6;
+    /*fill: #c9cdd6;*/
 }
 
 .event {
-    fill: #e5effa;
+    /*fill: #e5effa;*/
 	color:#007ac3;
 }
 
 .active {
-    fill:white;
+    fill:#007ac3;
+    color:#FFFF4F;
 }
 
 .icon {
