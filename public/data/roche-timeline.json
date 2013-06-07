@@ -1,166 +1,355 @@
 {
     "GetResult": [{
         "events": [{
-            "enddate": "2012-05-22 12:00:00",
-            "icon": "turquoise2.png",
-            "color" : "#FF0000",
+            "enddate": "2013-05-22 12:00:00",
+            "icon": "blue.png",
+            "color" : "#e2f0ff",
             "id": "7e632a7c-1d68-4b19-ab1f-3c1dfac035df",
-            "startdate": "2012-05-18 12:00:00",
+            "startdate": "2013-05-18 12:00:00",
             "title": "APA (San Francisco)"
         }, {
-            "enddate": "2012-10-09 12:00:00",
-            "icon": "turquoise2.png",
+            "enddate": "2013-10-09 12:00:00",
+            "icon": "blue.png",
             "id": "22252e34-c0db-4e99-902d-761708e64505",
-            "color" : "#FF0000",
-            "startdate": "2012-10-05 12:00:00",
+            "color" : "#e2f0ff",
+            "startdate": "2013-10-05 12:00:00",
+            "title": "ECNP (Barcelona)"		
+        }, {
+            "enddate": "2014-05-22 12:00:00",
+            "icon": "blue.png",
+            "color" : "#e2f0ff",
+            "id": "7e632a7c-1d68-4b19-ab1f-3c1dfac035df",
+            "startdate": "2014-05-18 12:00:00",
+            "title": "APA (San Francisco)"
+        }, {
+            "enddate": "2014-10-09 12:00:00",
+            "icon": "blue.png",
+            "id": "22252e34-c0db-4e99-902d-761708e64505",
+            "color" : "#e2f0ff",
+            "startdate": "2014-10-05 12:00:00",
             "title": "ECNP (Barcelona)"
         }, {
-            "enddate": "2012-05-07 12:00:00",
-            "icon": "turquoise2.png",
+            "enddate": "2015-05-22 12:00:00",
+            "icon": "blue.png",
+            "color" : "#e2f0ff",
+            "id": "7e632a7c-1d68-4b19-ab1f-3c1dfac035df",
+            "startdate": "2015-05-18 12:00:00",
+            "title": "APA (San Francisco)"
+        }, {
+            "enddate": "2015-10-09 12:00:00",
+            "icon": "blue.png",
+            "id": "22252e34-c0db-4e99-902d-761708e64505",
+            "color" : "#e2f0ff",
+            "startdate": "2015-10-05 12:00:00",
+            "title": "ECNP (Barcelona)"
+        }, {
+            "enddate": "2016-05-22 12:00:00",
+            "icon": "blue.png",
+            "color" : "#e2f0ff",
+            "id": "7e632a7c-1d68-4b19-ab1f-3c1dfac035df",
+            "startdate": "2016-05-18 12:00:00",
+            "title": "APA (San Francisco)"
+        }, {
+            "enddate": "2016-10-09 12:00:00",
+            "icon": "blue.png",
+            "id": "22252e34-c0db-4e99-902d-761708e64505",
+            "color" : "#e2f0ff",
+            "startdate": "2016-10-05 12:00:00",
+            "title": "ECNP (Barcelona)"
+        }, {												
+            "enddate": "2013-05-07 12:00:00",
+            "icon": "red.png",
             "id": "4ec3a268-7b9a-433b-9417-b778a8999dc3",
-            "color" : "#FF0000",
-            "startdate": "2012-05-07 12:00:00",
+            "color" : "#ffe6e6",
+            "startdate": "2013-05-07 12:00:00",
             "title": "Train-the-trainer"
         }, {
-            "enddate": "2012-07-03 12:00:00",
-            "icon": "turquoise2.png",
-            "id": "2c2fe3ce-ad79-4d11-804d-98e71e670f59",
-            "color" : "#FF0000",
-            "startdate": "2012-07-03 12:00:00",
-            "title": "Lunch talk"
-        }, {
-            "enddate": "2012-09-07 12:00:00",
-            "icon": "brown.png",
+            "enddate": "2013-09-07 12:00:00",
+            "icon": "red.png",
             "id": "60b6b1b0-ee0f-4f6e-93d7-4b69e6aea4fd",
-            "color" : "#FF0000",
-            "startdate": "2012-09-07 12:00:00",
+            "color" : "#ffe6e6",
+            "startdate": "2013-09-07 12:00:00",
             "title": "Preceptorship"
         }, {
-            "enddate": "2012-11-06 12:00:00",
-            "icon": "brown.png",
-            "id": "314d8268-210a-4971-bcb6-28d76b97b0a7",
-            "color" : "#FF0000",
-            "startdate": "2012-11-06 12:00:00",
-            "title": "LunchTalk"
-        }, {
-            "enddate": "2012-11-15 12:00:00",
-            "icon": "green2.png",
+            "enddate": "2013-11-15 12:00:00",
+            "icon": "green.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
-            "startdate": "2012-11-15 12:00:00",
-            "title": "Cariprazine"
+            "color" : "#cbffed",
+            "startdate": "2013-11-15 12:00:00",
+            "title": "Cariprazine (NDA filing)"
         }, {
+            "enddate": "2015-04-15 12:00:00",
+            "icon": "green.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#cbffed",
+            "startdate": "2015-04-15 12:00:00",
+            "title": "Brexipiprazole (filing)"
+        }, {			
             "enddate": "2013-01-15 12:00:00",
-            "icon": "green2.png",
+            "icon": "yellow.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
+            "color" : "#ffeebb",
             "startdate": "2013-01-15 12:00:00",
             "title": "Regional Advisory Board (France)"
         }, {
-            "enddate": "2013-03-15 12:00:00",
-            "icon": "green2.png",
-            "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
-            "startdate": "2013-03-15 12:00:00",
-            "title": "Regional Advisory Board (US)"
-        }, {
-            "enddate": "2013-05-15 12:00:00",
-            "icon": "green2.png",
-            "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
-            "startdate": "2013-05-15 12:00:00",
-            "title": "Regional Advisory Board (Germany)"
-        }, {
             "enddate": "2014-10-10 12:00:00",
-            "icon": "green2.png",
+            "icon": "yellow.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
+            "color" : "#ffeebb",
             "startdate": "2014-10-10 12:00:00",
             "title": "Regional Advisory Board (Canada)"
         }, {
-            "enddate": "2014-12-08 12:00:00",
-            "icon": "green2.png",
-            "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
-            "startdate": "2014-12-08 12:00:00",
-            "title": "Regional Advisory Board (Brazil)"
-        }, {
             "enddate": "2015-01-08 12:00:00",
-            "icon": "green2.png",
+            "icon": "yellow.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
+            "color" : "#ffeebb",
             "startdate": "2015-01-08 12:00:00",
             "title": "Regional Advisory Board (China)"
         }, {
             "enddate": "2015-03-05 12:00:00",
-            "icon": "green2.png",
+            "icon": "yellow.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
+            "color" : "#ffeebb",
             "startdate": "2015-03-05 12:00:00",
             "title": "Regional Advisory Board (Japan)"
         }, {
-            "enddate": "2015-04-05 12:00:00",
-            "icon": "green2.png",
-            "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
-            "startdate": "2015-04-05 12:00:00",
-            "title": "Regional Advisory Board (UK)"
-        }, {
-            "enddate": "2016-01-05 12:00:00",
-            "icon": "green2.png",
-            "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
-            "startdate": "2016-01-05 12:00:00",
-            "title": "Regional Advisory Board (Spain)"
-        }, {
-            "enddate": "2015-12-08 12:00:00",
-            "icon": "green2.png",
-            "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
-            "startdate": "2015-12-08 12:00:00",
-            "title": "Regional Advisory Board (Italy)"
-        }, {
             "enddate": "2013-05-16 12:00:00",
-            "icon": "green2.png",
+            "icon": "yellow.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
+            "color" : "#ffeebb",
             "startdate": "2013-05-16 12:00:00",
-            "title": "Neurobiology of Negative Symptoms in Schizophrenia"
+            "title": "Advisory Board: Neurobiology of Negative Symptoms in Schizophrenia"
         }, {
             "enddate": "2013-06-01 12:00:00",
-            "icon": "green2.png",
+            "icon": "yellow.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
+            "color" : "#ffeebb",
             "startdate": "2013-06-01 12:00:00",
-            "title": "Clinical Meaningfulness"
+            "title": "Advisory Board: Clinical Meaningfulness"
         }, {
             "enddate": "2013-10-01 12:00:00",
-            "icon": "green2.png",
+            "icon": "yellow.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
+            "color" : "#ffeebb",
             "startdate": "2013-10-01 12:00:00",
-            "title": "Sub-optimally controlled symptoms in schizophrenia"
+            "title": "Advisory Board: Sub-optimally controlled symptoms in schizophrenia"
+        }, {			
+		    "enddate": "2014-6-01 12:00:00",
+            "icon": "blue.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#e2f0ff",
+            "startdate": "2014-6-01 12:00:00",
+            "title": "Regional Advisory Board (US)"
+        }, {
+		    "enddate": "2014-11-01 12:00:00",
+            "icon": "yellow.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ffeebb",
+            "startdate": "2014-11-01 12:00:00",
+            "title": "Regional Advisory Board (Germany)"
+        }, {
+		    "enddate": "2015-10-01 12:00:00",
+            "icon": "blue.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#e2f0ff",
+            "startdate": "2015-10-01 12:00:00",
+            "title": "Regional Advisory Board (Canada)"
+        }, {
+		    "enddate": "2015-8-01 12:00:00",
+            "icon": "blue.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#e2f0ff",
+            "startdate": "2015-8-01 12:00:00",
+            "title": "Regional Advisory Board (Brazil)"
+        }, {
+		    "enddate": "2015-11-01 12:00:00",
+            "icon": "blue.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#e2f0ff",
+            "startdate": "2015-11-01 12:00:00",
+            "title": "Regional Advisory Board (China)"
+        }, {
+		    "enddate": "2016-10-01 12:00:00",
+            "icon": "blue.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#e2f0ff",
+            "startdate": "2016-10-01 12:00:00",
+            "title": "Regional Advisory Board (Japan)"
+        }, {
+		    "enddate": "2016-7-01 12:00:00",
+            "icon": "blue.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#e2f0ff",
+            "startdate": "2016-7-01 12:00:00",
+            "title": "Regional Advisory Board (UK)"
+        }, {
+		    "enddate": "2016-4-01 12:00:00",
+            "icon": "blue.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#e2f0ff",
+            "startdate": "2016-4-01 12:00:00",
+            "title": "Regional Advisory Board (Spain)"
+        }, {
+		    "enddate": "2016-11-01 12:00:00",
+            "icon": "blue.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#e2f0ff",
+            "startdate": "2016-11-01 12:00:00",
+            "title": "Regional Advisory Board (Italy)"
+        }, {
+            "enddate": "2014-06-01 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2014-06-01 12:00:00",
+            "title": "Data Release: CINP (TwiLyte)"	
+        }, {
+            "enddate": "2014-09-01 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2014-09-01 12:00:00",
+            "title": "Data Release: WPA (TwiLyte)"
         }, {
             "enddate": "2014-10-01 12:00:00",
-            "icon": "green2.png",
+            "icon": "purple.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
+            "color" : "#ececff",
+            "startdate": "2014-10-01 12:00:00",
+            "title": "Data Release: ECNP (TwiLyte)"	
+        }, {
+            "enddate": "2014-10-01 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2014-10-01 12:00:00",
+            "title": "Data Release: ECNP (PATTERN)"
+        }, {
+            "enddate": "2014-04-01 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2015-04-01 12:00:00",
+            "title": "Data Release: ICOSR (Pooled negative symptoms)"
+        }, {
+            "enddate": "2015-05-01 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2015-05-01 12:00:00",
+            "title": "Data Release: APA (MoonLyte)"
+        }, {
+            "enddate": "2015-05-01 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2015-05-01 12:00:00",
+            "title": "Data Release: APA (NightLyte)"
+        }, {
+            "enddate": "2015-05-01 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2015-05-01 12:00:00",
+            "title": "Data Release: APA (Pooled safety analysis)"
+        }, {
+            "enddate": "2015-08-25 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2015-08-25 12:00:00",
+            "title": "Data Release: ECNP (Pooled neg sx studies)"
+        }, {
+            "enddate": "2015-08-25 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2015-08-25 12:00:00",
+            "title": "Data Release: ECNP (Pooled SOC sx studies)"	
+        }, {
+            "enddate": "2015-08-25 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2015-08-25 12:00:00",
+            "title": "Data Release: ECNP (Pooled safety analysis)"	
+        }, {
+            "enddate": "2015-08-25 12:00:00",
+            "icon": "purple.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ececff",
+            "startdate": "2015-08-25 12:00:00",
+            "title": "Data Release: ECNP (PATTERN)"
+        }, {
+            "enddate": "2014-02-01 12:00:00",
+            "icon": "red.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ffe6e6",
+            "startdate": "2014-02-01 12:00:00",
+            "title": "CONNECT (Spain)"
+        }, {
+            "enddate": "2014-05-01 12:00:00",
+            "icon": "red.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ffe6e6",
+            "startdate": "2014-05-01 12:00:00",
+            "title": "CONNECT (China)"	
+        }, {
+            "enddate": "2014-09-01 12:00:00",
+            "icon": "red.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ffe6e6",
+            "startdate": "2014-09-01 12:00:00",
+            "title": "CONNECT (Brazil)"	
+        }, {
+            "enddate": "2015-01-01 12:00:00",
+            "icon": "red.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ffe6e6",
+            "startdate": "2015-01-01 12:00:00",
+            "title": "CONNECT (US)"	
+        }, {
+            "enddate": "2015-05-01 12:00:00",
+            "icon": "red.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ffe6e6",
+            "startdate": "2015-05-01 12:00:00",
+            "title": "CONNECT (Brazil)"	
+        }, {
+            "enddate": "2015-09-25 12:00:00",
+            "icon": "red.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ffe6e6",
+            "startdate": "2015-09-25 12:00:00",
+            "title": "CONNECT (Global)"
+        }, {																								
+            "enddate": "2013-10-01 12:00:00",
+            "icon": "red.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ffe6e6",
+            "startdate": "2013-10-01 12:00:00",
+            "title": "Global Implementation Meeting (GIM)"        
+		}, {																								
+            "enddate": "2014-10-01 12:00:00",
+            "icon": "red.png",
+            "id": "0197df86-b34c-438d-8a32-37f56002d719",
+            "color" : "#ffe6e6",
             "startdate": "2014-10-01 12:00:00",
             "title": "Global Implementation Meeting (GIM)"
         }, {
             "enddate": "2015-10-01 12:00:00",
-            "icon": "green2.png",
+            "icon": "red.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
+            "color" : "#ffe6e6",
             "startdate": "2015-10-01 12:00:00",
             "title": "Global Implementation Meeting (GIM)"
         }, {
             "enddate": "2016-10-01 12:00:00",
-            "icon": "green2.png",
+            "icon": "red.png",
             "id": "0197df86-b34c-438d-8a32-37f56002d719",
-            "color" : "#FF0000",
-            "startdate": "2015-10-01 12:00:00",
-            "title": "Global Implementation Meeting (GIM)"
+            "color" : "#ffe6e6",
+            "startdate": "2016-10-01 12:00:00",
+            "title": "Global Implementation Meeting (GIM)"																																																																												
         }],
         "focus_date": "2012-05-05 12:00:00",
         "id": "js_history 78979",
